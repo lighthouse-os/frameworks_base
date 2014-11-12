@@ -91,5 +91,6 @@ public class SystemSettings {
         Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.PROXIMITY_ON_WAKE,
+        Settings.System.SCREENSHOT_SOUND,
     };
 }

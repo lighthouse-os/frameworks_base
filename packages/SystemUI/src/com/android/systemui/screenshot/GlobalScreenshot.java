@@ -653,7 +653,11 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
                     break;
                 case AudioManager.RINGER_MODE_NORMAL:
                     // Play the shutter sound to notify that we've taken a screenshot
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.SCREENSHOT_SOUND, 0) == 1) {
                     mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                }
+                    
                     break;
             }
         });
@@ -723,7 +727,10 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
                         break;
                     case AudioManager.RINGER_MODE_NORMAL:
                         // Play the shutter sound to notify that we've taken a screenshot
-                        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                        if (Settings.System.getInt(mContext.getContentResolver(),
+                                Settings.System.SCREENSHOT_SOUND, 0) == 1) {
+                            mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                        }
                         break;
                 }
 
