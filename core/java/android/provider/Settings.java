@@ -5377,7 +5377,13 @@ public final class Settings {
         * @hide
         */
        public static final String DOZE_BRIGHTNESS_FORCE = "doze_brightness_force";
-       
+
+       /**
+                * Whether user is allowed to pull down quick settings on secure keyguard.
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD =
+                "status_bar_locked_on_secure_keyguard";
         /**
         * Use doubletap as doze pulse triggers
         * @hide
