@@ -85,5 +85,6 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
+        Settings.System.LOCKSCREEN_MEDIA_METADATA,
     };
 }
