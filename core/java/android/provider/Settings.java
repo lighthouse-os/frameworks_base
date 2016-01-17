@@ -5010,6 +5010,13 @@ public final class Settings {
          */
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
+        
+        public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
+
+        /**
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
 
 
         /**
@@ -5129,6 +5136,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);
             PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
         }
 
         /**
