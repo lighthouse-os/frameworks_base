@@ -75,6 +75,7 @@ public class NetworkPolicyManager {
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
     /** Reject network usage on cellular network */
     public static final int POLICY_REJECT_CELL = 0x10000;
+    public static final int POLICY_REJECT_CELLULAR = 0x10000;
     /** Reject network usage on virtual private network */
     public static final int POLICY_REJECT_VPN = 0x20000;
     /** Reject network usage on wifi network */

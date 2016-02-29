@@ -63,6 +63,7 @@ import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELL;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
@@ -4381,6 +4382,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         try {
             mNetworkManager.restrictAppOnInterface("cell", uid,
                     (uidPolicy & POLICY_REJECT_CELL) != 0);
+            mNetworkManager.restrictAppOnInterface("cellular", uid,
+                    (uidPolicy & POLICY_REJECT_CELLULAR) != 0);
             mNetworkManager.restrictAppOnInterface("vpn", uid,
                     (uidPolicy & POLICY_REJECT_VPN) != 0);
             mNetworkManager.restrictAppOnInterface("wifi", uid,

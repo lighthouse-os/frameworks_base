@@ -264,6 +264,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
      * separate for each use case.
      */
     private static final String RESTRICT_USECASE_CELL = "cell";
+    private static final String RESTRICT_USECASE_CELLULAR = "cellular";
     private static final String RESTRICT_USECASE_VPN  = "vpn";
     private static final String RESTRICT_USECASE_WIFI = "wifi";
 
@@ -295,6 +296,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             // multiple transports).
             new RestrictIf(RESTRICT_USECASE_VPN, NetworkCapabilities.TRANSPORT_VPN),
             new RestrictIf(RESTRICT_USECASE_CELL, NetworkCapabilities.TRANSPORT_CELLULAR),
+            new RestrictIf(RESTRICT_USECASE_CELLULAR, NetworkCapabilities.TRANSPORT_CELLULAR),
             new RestrictIf(RESTRICT_USECASE_WIFI, NetworkCapabilities.TRANSPORT_WIFI),
     };
 
