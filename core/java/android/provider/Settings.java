@@ -5295,13 +5295,18 @@ public final class Settings {
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
         /**
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
          * All settings in {@link LEGACY_RESTORE_SETTINGS} array *must* have a non-null validator,
          * otherwise they won't be restored.
          *
-         * @hide
          */
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
