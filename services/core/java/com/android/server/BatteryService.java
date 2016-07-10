@@ -181,13 +181,13 @@ public final class BatteryService extends SystemService {
     private boolean mHasVoocCharger;
     private boolean mLastVoocCharger;
 
-    private boolean mVoocCharger;
-    private boolean mHasVoocCharger;
-    private boolean mLastVoocCharger;
-
     private boolean mTurboPower;
     private boolean mHasTurboPower;
     private boolean mLastTurboPower;
+    
+    private boolean mDashCharger;
+    private boolean mHasDashCharger;
+    private boolean mLastDashCharger;
 
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
@@ -224,6 +224,8 @@ public final class BatteryService extends SystemService {
                 com.android.internal.R.bool.config_hasVoocCharger);
         mHasTurboPower = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasTurboPowerCharger);
+        mHasDashCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasDashCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -525,6 +527,7 @@ public final class BatteryService extends SystemService {
 
         mVoocCharger = mHasVoocCharger && isVoocCharger();
         mTurboPower = mHasTurboPower && isTurboPower();
+        mDashCharger = mHasDashCharger && isDashCharger();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
                 mHealthInfo.batteryHealth != mLastBatteryHealth ||
@@ -536,7 +539,7 @@ public final class BatteryService extends SystemService {
                 mHealthInfo.maxChargingCurrent != mLastMaxChargingCurrent ||
                 mHealthInfo.maxChargingVoltage != mLastMaxChargingVoltage ||
                 mHealthInfo.batteryChargeCounter != mLastChargeCounter ||
-                mVoocCharger != mLastVoocCharger ||
+                mVoocCharger != mLastVoocCharger ||  mDashCharger != mLastDashCharger ||
                 mInvalidCharger != mLastInvalidCharger || mTurboPower != mLastTurboPower)) {
 
             if (mPlugType != mLastPlugType) {
@@ -710,6 +713,7 @@ public final class BatteryService extends SystemService {
             mLastInvalidCharger = mInvalidCharger;
             mLastVoocCharger = mVoocCharger;
             mLastTurboPower = mTurboPower;
+            mLastDashCharger = mDashCharger;
         }
     }
 
@@ -739,6 +743,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_CHARGE_COUNTER, mHealthInfo.batteryChargeCounter);
         intent.putExtra(BatteryManager.EXTRA_VOOC_CHARGER, mVoocCharger);
         intent.putExtra(BatteryManager.EXTRA_TURBO_POWER, mTurboPower);
+        intent.putExtra(BatteryManager.EXTRA_DASH_CHARGER, mDashCharger);
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString());
@@ -793,9 +798,9 @@ public final class BatteryService extends SystemService {
         mLastBatteryLevelChangedSentMs = SystemClock.elapsedRealtime();
     }
 
-    private boolean isVoocCharger() {
+    private boolean isDashCharger() {
         try {
-            FileReader file = new FileReader("/sys/class/power_supply/battery/voocchg_ing");
+            FileReader file = new FileReader("/sys/class/power_supply/battery/fastchg_status");
             BufferedReader br = new BufferedReader(file);
             String state = br.readLine();
             br.close();
