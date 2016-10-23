@@ -139,6 +139,7 @@ import com.android.server.os.BugreportManagerService;
 import com.android.server.os.DeviceIdentifiersPolicyService;
 import com.android.server.os.SchedulingPolicyService;
 import com.android.server.people.PeopleService;
+import com.android.server.pocket.PocketService;
 import com.android.server.pm.BackgroundDexOptService;
 import com.android.server.pm.CrossProfileAppsService;
 import com.android.server.pm.DataLoaderManagerService;
@@ -2108,6 +2109,10 @@ public final class SystemServer {
                 mSystemServiceManager.startService(LiveDisplayService.class);
                 t.traceEnd();
             }
+            
+            t.traceBegin("StartPocketService");
+            mSystemServiceManager.startService(PocketService.class);
+            t.traceEnd();
         }
 
         if (!isWatch) {
