@@ -5529,6 +5529,13 @@ public final class Settings {
         public static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
         /**
+
+         * media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
