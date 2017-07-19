@@ -58,6 +58,11 @@
             android:key="zen"
             android:title="@string/quick_settings_dnd_label" />
 
+    <com.android.systemui.tuner.TunerSwitch
+        android:key="ims"
+        android:title="@string/status_bar_ims"
+        sysui:defValue="true" />
+
         <!-- mute -->
 
         <com.android.systemui.tuner.StatusBarSwitch
