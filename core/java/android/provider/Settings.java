@@ -5251,6 +5251,18 @@ public final class Settings {
          */
 
         /**
+         * Double tap on lockscreen to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
+               "double_tap_sleep_lockscreen";
+        /**
+         *  Enable statusbar double tap gesture on to put device to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5355,7 +5367,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOW_BATTERY_SOUND);
             PRIVATE_SETTINGS.add(DESK_DOCK_SOUND);
             PRIVATE_SETTINGS.add(DESK_UNDOCK_SOUND);
-            PRIVATE_SETTINGS.add(CAR_DOCK_SOUND);
             PRIVATE_SETTINGS.add(CAR_UNDOCK_SOUND);
             PRIVATE_SETTINGS.add(LOCK_SOUND);
             PRIVATE_SETTINGS.add(UNLOCK_SOUND);
@@ -5370,6 +5381,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE_VENDOR_HINT);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
         }
 
         /**
