@@ -3885,6 +3885,8 @@ public class StatusBar extends SystemUI implements
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_LOCKSCREEN_MEDIA_ART),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
         }
 
         @Override
@@ -3903,12 +3905,14 @@ public class StatusBar extends SystemUI implements
                     Settings.System.SHOW_LOCKSCREEN_MEDIA_ART))) {
                 setLockScreenMediaArt();
             }
+            update();
         }
 
         public void update() {
             setLockscreenDoubleTapToSleep();
             setLockScreenMediaBlurLevel();
             setLockScreenMediaArt();         
+            setHeadsUpBlacklist();
         }
     }
     private void setLockscreenDoubleTapToSleep() {
@@ -3928,6 +3932,11 @@ public class StatusBar extends SystemUI implements
         if (mMediaManager != null) {
             mMediaManager.setLockScreenMediaArt();
         }
+    }
+
+    private void setHeadsUpBlacklist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpBlacklist();
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
