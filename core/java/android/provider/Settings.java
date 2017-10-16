@@ -5406,6 +5406,29 @@ public final class Settings {
          * @hide
          */
         public static final String FONT_PACKAGES = "font_packages";
+
+        /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+
+        /**
+         * Ticker animation
+         * 0: Fade animation
+         * 1: Scrolling ticker
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_ANIMATION_MODE =
+                "status_bar_ticker_animation_mode";
+
+        /**
+         * Status bar ticker duration in milliseconds.
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_TICK_DURATION =
+                "status_bar_ticker_tick_duration";
+
         /**
         * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
