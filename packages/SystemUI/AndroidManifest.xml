@@ -277,6 +277,9 @@
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
+    <!-- QS Tiles -->
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+    
     <!-- Smart space -->
     <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
