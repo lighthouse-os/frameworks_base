@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.lighthouse
-;
+package com.android.internal.util.lighthouse;
 
 import android.Manifest;
 import android.app.ActivityManager;

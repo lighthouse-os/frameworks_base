@@ -200,8 +200,9 @@ import com.android.internal.policy.KeyInterceptionInfo;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
-import com.android.server.ExtconStateObserver;
+import com.android.internal.util.lighthouse.LineageButtons;
 import com.android.server.ExtconUEventObserver;
+import com.android.server.ExtconStateObserver;
 import com.android.server.GestureLauncherService;
 import com.android.server.LocalServices;
 import com.android.server.SystemServiceManager;
@@ -616,8 +617,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
 
+    // Power long press action saved 
+    private LineageButtons mLineageButtons;
+
     private static final int MSG_DISPATCH_MEDIA_KEY_WITH_WAKE_LOCK = 3;
-    private static final int MSG_DISPATCH_MEDIA_KEY_REPEAT_WITH_WAKE_LOCK = 4;
     private static final int MSG_KEYGUARD_DRAWN_COMPLETE = 5;
     private static final int MSG_KEYGUARD_DRAWN_TIMEOUT = 6;
     private static final int MSG_WINDOW_MANAGER_DRAWN_COMPLETE = 7;
@@ -633,6 +636,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_BUGREPORT_TV = 18;
     private static final int MSG_ACCESSIBILITY_TV = 19;
     private static final int MSG_DISPATCH_BACK_KEY_TO_AUTOFILL = 20;
+    private static final int MSG_DISPATCH_MEDIA_KEY_REPEAT_WITH_WAKE_LOCK = 4;
     private static final int MSG_SYSTEM_KEY_PRESS = 21;
     private static final int MSG_HANDLE_ALL_APPS = 22;
     private static final int MSG_LAUNCH_ASSIST = 23;
@@ -3884,6 +3888,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // {@link interceptKeyBeforeDispatching()}.
                     result |= ACTION_PASS_TO_USER;
                 } else if ((result & ACTION_PASS_TO_USER) == 0) {
+                    if (mLineageButtons.handleVolumeKey(event, interactive)) {
+                        break;
+                    }
+
                     // If we aren't passing to the user and no one else
                     // handled it send it to the session manager to
                     // figure out.
@@ -4902,6 +4910,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mKeyguardDelegate.onBootCompleted();
             }
         }
+
+        mLineageButtons = new LineageButtons(mContext);
 
         mAutofillManagerInternal = LocalServices.getService(AutofillManagerInternal.class);
     }
