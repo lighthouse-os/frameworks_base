@@ -5204,6 +5204,12 @@ public final class Settings {
          */
         public static final String LIVE_DISPLAY_HINTED = "live_display_hinted";
 
+       /**
+        * Check the proximity sensor during wakeup
+        * @hide
+        */
+       public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
+
         /**
          * Whether allowing pocket service to register sensors and dispatch informations.
          *   0 = disabled
@@ -5345,6 +5351,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
+            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
         }
 
         /**
