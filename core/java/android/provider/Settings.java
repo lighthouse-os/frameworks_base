@@ -5092,6 +5092,8 @@ public final class Settings {
          * Note: the dependencies must be Secure settings
          *
          * @hide
+         */
+
         public static final Map<String, String> CLONE_FROM_PARENT_ON_VALUE = new ArrayMap<>();
         static {
             CLONE_FROM_PARENT_ON_VALUE.put(RINGTONE, Secure.SYNC_PARENT_SOUNDS);
