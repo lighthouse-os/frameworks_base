@@ -5055,6 +5055,10 @@ public final class Settings {
          */
         public static final String NETWORK_TRAFFIC_ARROW = "network_traffic_arrow";
 
+        /**
+         * @hide
+         */
+        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
 
         /**
          * These are all public system settings
@@ -5176,7 +5180,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(EDGE_MUSIC_CONTROL);
             PRIVATE_SETTINGS.add(SHOW_FOURG);
-        }
+            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
 
         /**
          * These entries are considered common between the personal and the managed profile,
