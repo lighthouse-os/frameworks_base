@@ -19,6 +19,7 @@ package com.android.systemui.statusbar.notification.interruption;
 import static com.android.systemui.statusbar.StatusBarState.SHADE;
 
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.hardware.display.AmbientDisplayConfiguration;
@@ -61,6 +62,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private static final String SETTING_HEADS_UP_TICKER = "ticker_gets_heads_up";
 
     private final List<NotificationInterruptSuppressor> mSuppressors = new ArrayList<>();
+    private final Context mContext;
     private final StatusBarStateController mStatusBarStateController;
     private final NotificationFilter mNotificationFilter;
     private final ContentResolver mContentResolver;
@@ -87,6 +89,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             StatusBarStateController statusBarStateController,
             HeadsUpManager headsUpManager,
             @Main Handler mainHandler) {
+        mContext = context;
         mContentResolver = contentResolver;
         mPowerManager = powerManager;
         mDreamManager = dreamManager;
