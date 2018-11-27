@@ -5480,6 +5480,14 @@ public final class Settings {
         public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
 
         /**
+         * Whether to show the kill app button in notification guts
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
+                "notification_guts_kill_app_button";
+
+        /**
          * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all)
          * @hide
          */
