@@ -725,7 +725,7 @@ public final class DefaultPermissionGrantPolicy {
         grantPermissionsToPackage(pm,WellbeingPackageName, userId, false,
                 true, SUSPEND_APP_PERMISSIONS);
         }
-        
+
         // Google prebuilt WP picker
         String wpPickerPackageName = "com.android.wallpaper.livepicker";
         grantPermissionsToSystemPackage(pm, wpPickerPackageName, userId, WALLPAPER_PERMISSIONS);
@@ -950,6 +950,11 @@ public final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage(pm,
                 getDefaultProviderAuthorityPackage("com.google.android.flipendo", userId),
                 userId, SUSPEND_APP_PERMISSIONS);
+                getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
+                STORAGE_PERMISSIONS);
+
+        // Google sound picker
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.soundpicker", userId, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
