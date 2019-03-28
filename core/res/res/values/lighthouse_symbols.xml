@@ -23,4 +23,8 @@
     <java-symbol type="string" name="reboot_title" />
     <java-symbol type="string" name="reboot_message" />
     <java-symbol type="array" name="custom_config_globalActionsList" />
+
+    <!-- Smart charging battery percentage -->
+    <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+
 </resources>

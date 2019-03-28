@@ -23,4 +23,8 @@
         <item>restart</item>
         <item>screenshot</item> <!--2 buttons nav-->
     </string-array>
+
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+
 </resources>
