@@ -5068,6 +5068,12 @@
     <!-- @hide Allows an application to create/destroy input consumer. -->
     <permission android:name="android.permission.INPUT_CONSUMER"
                 android:protectionLevel="signature" />
+    <!-- @hide  -->
+    <permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"
+                android:protectionLevel="signature|privileged" />
+    <!-- @hide  -->
+    <permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY"
+                android:protectionLevel="signature|privileged" />
 
     <!-- Attribution for Country Detector. -->
     <attribution android:tag="CountryDetector" android:label="@string/country_detector"/>
@@ -5079,12 +5085,15 @@
     <!-- Feature Id for Twilight service. -->
     <attribution android:tag="TwilightService" android:label="@string/twilight_service"/>
 
+    <!-- Live display -->
+    <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LINEAGE_HARDWARE" />
+    <protected-broadcast android:name="lineageos.platform.intent.action.UPDATE_TWILIGHT_STATE" />
+
     <application android:process="system"
                  android:persistent="true"
                  android:hasCode="false"
                  android:label="@string/android_system_label"
                  android:allowClearUserData="false"
-                 android:backupAgent="com.android.server.backup.SystemBackupAgent"
                  android:killAfterRestore="false"
                  android:icon="@drawable/ic_launcher_android"
                  android:supportsRtl="true"
