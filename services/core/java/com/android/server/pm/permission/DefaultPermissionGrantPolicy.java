@@ -950,8 +950,6 @@ public final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage(pm,
                 getDefaultProviderAuthorityPackage("com.google.android.flipendo", userId),
                 userId, SUSPEND_APP_PERMISSIONS);
-                getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
-                STORAGE_PERMISSIONS);
 
         // Google sound picker
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.soundpicker", userId, STORAGE_PERMISSIONS);
