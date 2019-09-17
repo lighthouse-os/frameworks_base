@@ -5468,8 +5468,14 @@ public final class Settings {
         public static final String GAMING_MODE_HEADSUP_TOGGLE = "gaming_mode_headsup_toggle";
 
         /**
-         * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
+         * Setting to hold the current set overlay for color bucket.
+         * overlay package name (String)
          * @hide
+         */
+        public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
+
+        /**
+         * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
          */
         public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
 
@@ -5635,6 +5641,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS_FORCE);
             PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
+            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
         }
 
         /**

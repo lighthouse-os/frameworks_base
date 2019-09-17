@@ -92,5 +92,6 @@ public class SystemSettings {
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.PROXIMITY_ON_WAKE,
         Settings.System.SCREENSHOT_SOUND,
+        Settings.System.COLOR_BUCKET_OVERLAY,
     };
 }
