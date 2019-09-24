@@ -88,5 +88,6 @@ public class SystemSettings {
         Settings.System.LOCKSCREEN_MEDIA_METADATA,
         Settings.System.TORCH_LONG_PRESS_POWER_GESTURE,
         Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT,
+        Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
     };
 }
