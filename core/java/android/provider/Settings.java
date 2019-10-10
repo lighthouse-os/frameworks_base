@@ -5341,6 +5341,12 @@ public final class Settings {
         * @hide
         */
        public static final String DOZE_BRIGHTNESS_FORCE = "doze_brightness_force";
+       
+        /**
+        * Use doubletap as doze pulse triggers
+        * @hide
+        */
+        public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
 
         /**
         * helper setting to contain the current pulse reason so we can check
