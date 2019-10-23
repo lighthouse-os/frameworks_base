@@ -149,6 +149,7 @@ public final class ClockManager {
         Resources res = context.getResources();
         LayoutInflater layoutInflater = injectionInflater.injectable(LayoutInflater.from(context));
 
+
         addBuiltinClock(() -> new DefaultClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new DefaultBoldClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new AnalogClockController(res, layoutInflater, colorExtractor));
@@ -157,6 +158,8 @@ public final class ClockManager {
         addBuiltinClock(() -> new TypeClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new SamsungClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new SamsungBoldClockController(res, layoutInflater, colorExtractor));
+        addBuiltinClock(() -> new BinaryClockController(res, layoutInflater, colorExtractor));
+
 
         // Store the size of the display for generation of clock preview.
         DisplayMetrics dm = res.getDisplayMetrics();
