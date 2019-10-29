@@ -955,6 +955,15 @@ public final class SystemServiceRegistry {
                         return new PocketManager(ctx.getOuterContext(), service);
                     }});
 
+        registerService(Context.POCKET_SERVICE, PocketManager.class,
+                new CachedServiceFetcher<PocketManager>() {
+                    @Override
+                    public PocketManager createService(ContextImpl ctx) {
+                        IBinder binder = ServiceManager.getService(Context.POCKET_SERVICE);
+                        IPocketService service = IPocketService.Stub.asInterface(binder);
+                        return new PocketManager(ctx.getOuterContext(), service);
+                    }});
+
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new CachedServiceFetcher<TvInputManager>() {
             @Override

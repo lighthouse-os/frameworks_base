@@ -39,7 +39,6 @@ import android.pocket.IPocketCallback;
 import android.pocket.PocketConstants;
 import android.pocket.PocketManager;
 import android.provider.Settings.System;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.Slog;
 
@@ -513,7 +512,7 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
         }
 
         if (!mProximityRegistered) {
-            mSensorManager.registerListener(mProximityListener, mProximitySensor,
+            mSensorManager.registerListener(mProximityListener, mProximitySensor, SensorManager.SENSOR_DELAY_NORMAL,
                     PROXIMITY_SENSOR_DELAY, mHandler);
             mProximityRegistered = true;
         }

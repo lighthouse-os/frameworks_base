@@ -2109,6 +2109,10 @@ public final class SystemServer {
             mSystemServiceManager.startService(CrossProfileAppsService.class);
             t.traceEnd();
 
+            traceBeginAndSlog("StartPocketService");
+            mSystemServiceManager.startService(PocketService.class);
+            t.traceEnd();
+
             t.traceBegin("StartPeopleService");
             mSystemServiceManager.startService(PeopleService.class);
             t.traceEnd();
