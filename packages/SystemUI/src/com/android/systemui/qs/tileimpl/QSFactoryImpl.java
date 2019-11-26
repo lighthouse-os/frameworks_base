@@ -35,6 +35,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DcDimmingTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
@@ -85,6 +86,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<DcDimmingTile> mDcDimmingTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
@@ -115,6 +117,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<DcDimmingTile> dcDimTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider) {
@@ -141,6 +144,7 @@ public class QSFactoryImpl implements QSFactory {
         mScreenRecordTileProvider = screenRecordTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mDcDimmingTileProvider = dcDimTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
@@ -199,6 +203,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCaffeineTileProvider.get();
             case "dc_dimming":
                 return mDcDimmingTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
             case "livedisplay":
