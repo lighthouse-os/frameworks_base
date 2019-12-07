@@ -725,6 +725,10 @@ public final class DefaultPermissionGrantPolicy {
         grantPermissionsToPackage(pm,WellbeingPackageName, userId, false,
                 true, SUSPEND_APP_PERMISSIONS);
         }
+        
+        // Google prebuilt WP picker
+        String wpPickerPackageName = "com.android.wallpaper.livepicker";
+        grantPermissionsToSystemPackage(pm, wpPickerPackageName, userId, WALLPAPER_PERMISSIONS);
 
         // Voice interaction
         if (voiceInteractPackageNames != null) {
