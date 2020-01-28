@@ -5261,6 +5261,12 @@ public final class Settings {
          */
         public static final String AMBIENT_BATTERY_PERCENT = "ambient_battery_percent";
 
+         /**
+         * Whether to use accent color for pulse
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT = "ambient_notification_light_accent";
+
         /**
         * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
