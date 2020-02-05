@@ -33,6 +33,7 @@ import android.service.notification.StatusBarNotification;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.content.Context;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -89,6 +90,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             StatusBarStateController statusBarStateController,
             HeadsUpManager headsUpManager,
             @Main Handler mainHandler) {
+        mContext = context;
         mContentResolver = contentResolver;
         mPowerManager = powerManager;
         mDreamManager = dreamManager;
