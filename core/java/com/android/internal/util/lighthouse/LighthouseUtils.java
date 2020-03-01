@@ -458,6 +458,17 @@ public class LighthouseUtils {
             isPackageInstalled(context, CUSTOM_DOZE_PACKAGE_NAME);
     }
 
+    public static void killForegroundApp() {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.killForegroundApp();
+            } catch (RemoteException e) {
+                // do nothing.
+            }
+        }
+    }
+
     // Method to detect whether an overlay is enabled or not
     public static boolean isThemeEnabled(String packageName) {
         mOverlayService = new OverlayManager();

@@ -235,7 +235,9 @@ oneway interface IStatusBar
     void hideInDisplayFingerprintView();
 
     /**
-     * Evolution X extensions
+     * Extensions
      */
     void toggleCameraFlash();
+    void killForegroundApp();
+
 }

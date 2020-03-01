@@ -156,7 +156,8 @@ interface IStatusBarService
     void hideInDisplayFingerprintView();
 
     /**
-     * Evolution X extensions
+     * Extensions
      */
     void toggleCameraFlash();
+    void killForegroundApp();
 }

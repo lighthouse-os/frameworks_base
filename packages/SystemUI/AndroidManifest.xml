@@ -283,13 +283,15 @@
     <!-- DataSwitch tile -->
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
 
+    <!-- Kill app tile -->
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <!-- QS Tiles -->
     <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
     
-    <!-- Smart space -->
     <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
