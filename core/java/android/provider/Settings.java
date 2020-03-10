@@ -14050,7 +14050,13 @@ public final class Settings {
          * @hide
          */
         public static final String HYBRID_SYSUI_BATTERY_WARNING_FLAGS = "hybrid_sysui_battery_warning_flags";
-        
+
+        /**
+         * @hide
+         */
+        public static final String SHOW_FPS_OVERLAY = "show_fps_overlay";
+
+
         /**
          * Show overlay of CPU core speeds
          * @hide

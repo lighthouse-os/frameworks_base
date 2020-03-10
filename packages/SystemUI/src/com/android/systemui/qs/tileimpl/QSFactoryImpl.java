@@ -38,6 +38,7 @@ import com.android.systemui.qs.tiles.DcDimmingTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
@@ -87,6 +88,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<DcDimmingTile> mDcDimmingTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
+    private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
@@ -118,9 +120,10 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<DcDimmingTile> dcDimTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
+            Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-            Provider<SmartPixelsTile> smartPixelsTileProvider,
-            Provider<HeadsUpTile> headsUpTileProvider) {
+                Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<SmartPixelsTile> smartPixelsTileProvider ) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -145,6 +148,7 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mDcDimmingTileProvider = dcDimTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
+        mFPSInfoTileProvider = fpsInfoTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
@@ -205,6 +209,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDcDimmingTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
+            case "fpsinfo":
+                return mFPSInfoTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
             case "livedisplay":
