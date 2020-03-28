@@ -90,4 +90,7 @@
         <item>lockdown</item>
         <item>torch</item>
     </string-array>
+
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 </resources>
