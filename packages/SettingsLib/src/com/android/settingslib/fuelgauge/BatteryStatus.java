@@ -26,8 +26,6 @@ import static android.os.BatteryManager.EXTRA_MAX_CHARGING_CURRENT;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
 import static android.os.BatteryManager.EXTRA_STATUS;
-
-//dev-harsh1998 Port vooc charging status to Android R
 import static android.os.BatteryManager.EXTRA_VOOC_CHARGER;
 
 import android.content.Context;
@@ -48,7 +46,7 @@ public class BatteryStatus {
     public static final int CHARGING_REGULAR = 1;
     public static final int CHARGING_FAST = 2;
     // dev-harsh1998 port vooc charging to Android R fuel gauge
-    public static final int CHARGING_VOOC = 3;
+    public static final int CHARGING_VOOC = 5;
 
     public final int status;
     public final int level;
