@@ -88,4 +88,7 @@
   <java-symbol type="array" name="config_displayModeMappings" />
   <java-symbol type="bool" name="config_enableLiveDisplay" />
   
+  <!-- Pocket Service -->
+  <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+
 </resources>
