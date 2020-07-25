@@ -34,6 +34,7 @@ import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DcDimmingTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
@@ -81,6 +82,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<DcDimmingTile> mDcDimmingTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
@@ -108,6 +110,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
+            Provider<DcDimmingTile> dcDimTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
@@ -131,6 +134,7 @@ public class QSFactoryImpl implements QSFactory {
         mUiModeNightTileProvider = uiModeNightTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
+        mDcDimmingTileProvider = dcDimTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
     }
 
@@ -185,6 +189,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenRecordTileProvider.get();
             case "caffeine":
                 return mCaffeineTileProvider.get();
+            case "dc_dimming":
+                return mDcDimmingTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
         }

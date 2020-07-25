@@ -801,6 +801,21 @@ public final class Settings {
             "android.settings.NIGHT_DISPLAY_SETTINGS";
 
     /**
+     * Activity Action: Show settings to allow configuration of DC Dimming.
+     * <p>
+     * In some cases, a matching Activity may not exist, so ensure you
+     * safeguard against this.
+     * <p>
+     * Input: Nothing.
+     * <p>
+     * Output: Nothing.
+     * @hide
+     */
+    @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
+    public static final String ACTION_DC_DIMMING_SETTINGS =
+            "android.settings.DC_DIMMING_SETTINGS";
+
+    /**
      * Activity Action: Show settings to allow configuration of Dark theme.
      * <p>
      * In some cases, a matching Activity may not exist, so ensure you
@@ -4628,6 +4643,30 @@ public final class Settings {
          public static final String NETWORK_TRAFFIC_VIEW_LOCATION = "network_traffic_view_location";
 
         /**
+         * Indicates the state of DC dimming AUTO mode:
+         *   0 - Off
+         *   1 - On
+         * @hide
+         */
+        public static final String DC_DIMMING_AUTO_MODE = "dc_dimming_auto_mode";
+
+        /**
+         * Indicates the state of DC dimming:
+         *   0 - Off
+         *   1 - On
+         * @hide
+         */
+        public static final String DC_DIMMING_STATE = "dc_dimming_state";
+
+        /**
+         * Indicates the brightness threshold for DC dimming.
+         * 0 - Disabled
+         * @hide
+         */
+        public static final String DC_DIMMING_BRIGHTNESS = "dc_dimming_brightness";
+
+
+        /**
          * Show pointer location on screen?
          * 0 = no
          * 1 = yes
@@ -5089,7 +5128,7 @@ public final class Settings {
          * @hide
          */
         public static final String AUTO_BRIGHTNESS_ONE_SHOT = "auto_brightness_one_shot";
-        
+
         /**
          * These are all public system settings
          *
