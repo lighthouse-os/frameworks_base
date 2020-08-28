@@ -1237,10 +1237,10 @@ public final class CameraManager {
 
         private String[] extractCameraIdListLocked() {
             String[] cameraIds = null;
-            boolean exposeAuxCamera = Camera.shouldExposeAuxCamera();
+            int numOfCameras = Camera.getNumberOfCameras();
             int idCount = 0;
             for (int i = 0; i < mDeviceStatus.size(); i++) {
-                if (!exposeAuxCamera && i == 2) break;
+                if (i == numOfCameras) break;
                 int status = mDeviceStatus.valueAt(i);
                 if (status == ICameraServiceListener.STATUS_NOT_PRESENT
                         || status == ICameraServiceListener.STATUS_ENUMERATING) continue;
@@ -1249,7 +1249,7 @@ public final class CameraManager {
             cameraIds = new String[idCount];
             idCount = 0;
             for (int i = 0; i < mDeviceStatus.size(); i++) {
-                if (!exposeAuxCamera && i == 2) break;
+                if (i == numOfCameras) break;
                 int status = mDeviceStatus.valueAt(i);
                 if (status == ICameraServiceListener.STATUS_NOT_PRESENT
                         || status == ICameraServiceListener.STATUS_ENUMERATING) continue;
@@ -1701,7 +1701,7 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, String id) {
-            if (!Camera.shouldExposeAuxCamera() && Integer.parseInt(id) >= 2) {
+            if (Integer.parseInt(id) >= Camera.getNumberOfCameras()) {
                 Log.w(TAG, "[soar.cts] ignore the status update of camera: " + id);
                 return;
             }
