@@ -65,7 +65,6 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     private final CellSignalCallback mSignalCallback = new CellSignalCallback();
     private final ActivityStarter mActivityStarter;
-    private final KeyguardStateController mKeyguard;
 
     private final KeyguardStateController mKeyguard;
 
@@ -75,7 +74,6 @@ public class CellularTile extends QSTileImpl<SignalState> {
         super(host);
         mController = networkController;
         mActivityStarter = activityStarter;
-        mKeyguard = keyguardStateController;
         mDataController = mController.getMobileDataController();
         mDetailAdapter = new CellularDetailAdapter();
         mController.observe(getLifecycle(), mSignalCallback);
