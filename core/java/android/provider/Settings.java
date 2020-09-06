@@ -4927,6 +4927,12 @@ public final class Settings {
         public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
 
         /**
+         * Show app volume rows in volume panel
+         * @hide
+         */
+        public static final String SHOW_APP_VOLUME = "show_app_volume";
+
+        /**
          * Show data usage in QS header
          * @hide
          */
