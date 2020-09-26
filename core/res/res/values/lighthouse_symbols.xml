@@ -109,5 +109,8 @@
 
     <!-- Pulse brightness -->
     <java-symbol type="integer" name="config_screenBrightnessPulse" />
+    
+   <!-- Vendor platform signatures -->
+   <java-symbol type="array" name="config_vendorPlatformSignatures" />
 
 </resources>
