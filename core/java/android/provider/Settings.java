@@ -5279,6 +5279,12 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+        
+        /** 
+         * Timeout for ambient pulse in seconds - 0 is no timeout
+         * @hide
+         */
+        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
         /**
         * helper setting to contain the current pulse reason so we can check
