@@ -147,7 +147,15 @@ public class QuickQSPanel extends QSPanel {
                 tilesView.getPaddingTop(),
                 endMargin - getVisualTilePadding(),
                 tilesView.getPaddingBottom());
+
     }
+
+    @Override
+    public void setListening(boolean listening) {
+        super.setListening(listening);
+        setBrightnessListening(listening);
+    }
+
 
     @Override
     protected String getDumpableTag() {
