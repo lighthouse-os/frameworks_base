@@ -39,6 +39,9 @@ LOCAL_REQUIRED_MODULES := \
 	FontArvoLatoOverlay \
         FontArbutusSourceOverlay \
 	FontRubikRubikOverlay \
+        FontKaiOverlay \
+        FontSamOverlay \
+        FontVictorOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularLauncherOverlay \
 	IconPackCircularSettingsOverlay \
