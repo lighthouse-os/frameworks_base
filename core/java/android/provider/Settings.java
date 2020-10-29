@@ -5262,6 +5262,12 @@ public final class Settings {
         public static final String AMBIENT_BATTERY_PERCENT = "ambient_battery_percent";
 
         /**
+        * helper setting to contain the current pulse reason so we can check
+         * if it has been triggered from a notification or a gesture
+         * @hide
+         */
+        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+        /**
          * These are all public system settings
          *
          * @hide
