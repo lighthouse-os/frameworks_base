@@ -716,6 +716,14 @@ public final class DefaultPermissionGrantPolicy {
         grantPermissionsToPackage(pm, browserPackage, userId, false /* ignoreSystemPackage */,
                 true /*whitelistRestrictedPermissions*/, FOREGROUND_LOCATION_PERMISSIONS);
 
+
+
+        // Flipendo
+        grantSystemFixedPermissionsToSystemPackage(pm,
+                getDefaultProviderAuthorityPackage("com.google.android.flipendo", userId),
+                userId, SUSPEND_APP_PERMISSIONS);
+
+
         // Wellbeing
         String WellbeingPackageName = "com.google.android.apps.wellbeing";
         if (mWellbeingInstalled(WellbeingPackageName) != false) {
