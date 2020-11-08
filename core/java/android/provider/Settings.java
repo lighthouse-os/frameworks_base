@@ -5022,115 +5022,7 @@ public final class Settings {
          * @hide
          */
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
-<<<<<<< HEAD
         
-=======
-
-        /**
-         * Change volume up and down handlign based on rotation
-         * @hide
-         */
-        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
-
-        /**
-         * Applications list where heasdup should't show
-         * @hide
-         */
-        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
-
-         /**
-         * Which applications to disable heads up notifications for
-         * @hide
-         */
-        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
-
-        /**
-          * Volume keys control cursor in text fields (default is 0)
-          * 0 - Disabled
-          * 1 - Volume up/down moves cursor left/right
-          * 2 - Volume up/down moves cursor right/left
-          * @hide
-          */
-        public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
-
-        /**
-         * Whether to show the battery bar
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR = "statusbar_battery_bar_no_navbar_list";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_COLOR = "statusbar_battery_bar_color";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_THICKNESS =
-                "statusbar_battery_bar_thickness";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_STYLE = "statusbar_battery_bar_style";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_ANIMATE = "statusbar_battery_bar_animate";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_CHARGING_COLOR =
-                "statusbar_battery_bar_charging_color";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_BATTERY_LOW_COLOR =
-                "statusbar_battery_bar_battery_low_color";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_ENABLE_CHARGING_COLOR =
-                "statusbar_battery_bar_enable_charging_color";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_BLEND_COLORS = "statusbar_battery_bar_blend_color";
-
-        /**
-         * @hide
-         */
-        public static final String STATUSBAR_BATTERY_BAR_BLEND_COLORS_REVERSE =
-                "statusbar_battery_bar_blend_color_reverse";
-
-        /**
-         * Whether to show artist and title on ambient/lock screen on new music tracks
-         * 0 - don't show track info
-         * 1 - show track info on bottom of Ambient Display (Pixel style)
-         * 2 - show track info within cLock widget (AOSP style)
-         * @hide
-         */
-        public static final String AMBIENT_MUSIC_TICKER = "ambient_music_ticker";
-
-        /**
-         * Whether to enable PULSE Edge lights
-         * @hide
-         */
-        public static final String NOTIFICATION_PULSE = "pulse_ambient_light";
-
-        /**
-         * Whether to enable Ambient Edge lights
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE = "ambient_notification_light_enabled";
-
->>>>>>> 7408e16e0551 (Ambient music v2: Allow for changing the music ticker position [1/2].)
         /**
          * Show data usage in QS header
          * @hide
@@ -5142,6 +5034,16 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+
+        /**
+         * Whether to show artist and title on ambient/lock screen on new music tracks
+         * 0 - don't show track info
+         * 1 - show track info on bottom of Ambient Display (Pixel style)
+         * 2 - show track info within cLock widget (AOSP style)
+         * @hide
+         */
+        public static final String AMBIENT_MUSIC_TICKER = "ambient_music_ticker";
+
 
         /**
          * Show 4G instead of LTE
