@@ -33,4 +33,9 @@
     <string name="tristate_rotation_270">Landscape (270°)</string>
 
     <string name="accessibility_status_bar_nfc">Nfc</string>
+
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
 </resources>
