@@ -43,6 +43,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
+import com.android.systemui.qs.tiles.KillappTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
@@ -92,6 +93,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<KillappTile> mKillappTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
 
@@ -124,7 +126,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-                Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<KillappTile> killappTileProvider,
+            Provider<HeadsUpTile> headsUpTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider ) {
         mQsHostLazy = qsHostLazy;
@@ -154,6 +157,7 @@ public class QSFactoryImpl implements QSFactory {
         mFPSInfoTileProvider = fpsInfoTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mKillappTileProvider = killappTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
         mGamingModeTileProvider = gamingModeTileProvider;
     }
@@ -219,6 +223,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "killapp":
+                return mKillappTileProvider.get();
             case "smartpixels":
                 return mSmartPixelsTileProvider.get();
             case "gaming":
