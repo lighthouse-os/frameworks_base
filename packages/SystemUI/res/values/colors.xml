@@ -273,4 +273,11 @@
     <color name="misalignment_text_color">#F28B82</color>
 
     <color name="screenrecord_status_color">#E94235</color>
+
+    <!-- Color for the Assistant invocation lights -->
+    <color name="edge_light_blue">#4185f4</color>
+    <color name="edge_light_green">#3aa853</color>
+    <color name="edge_light_red">#ea4234</color>
+    <color name="edge_light_yellow">#fbbc06</color>
+    
 </resources>

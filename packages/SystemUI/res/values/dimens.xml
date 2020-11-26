@@ -1402,4 +1402,13 @@
     <dimen name="config_rounded_mask_size">@*android:dimen/rounded_corner_radius</dimen>
     <dimen name="config_rounded_mask_size_top">@*android:dimen/rounded_corner_radius_top</dimen>
     <dimen name="config_rounded_mask_size_bottom">@*android:dimen/rounded_corner_radius_bottom</dimen>
+
+    <!-- Pixel navbar -->
+    <dimen name="opa_diamond_translation">16dp</dimen>
+    <dimen name="opa_disabled_home_diameter">@dimen/navigation_icon_size</dimen>
+    <dimen name="opa_dot_diam">10dp</dimen>
+    <dimen name="opa_line_x_trans_bg">30dp</dimen>
+    <dimen name="opa_line_x_trans_ry">15dp</dimen>
+    <dimen name="opa_line_y_translation">16dp</dimen>
+    
 </resources>
