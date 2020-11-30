@@ -5644,6 +5644,12 @@ public final class Settings {
         public static final String GAMING_MODE_USE_GAME_DRIVER = "gaming_mode_use_game_driver";
 
         /**
+         * FOD pressed color
+         * @hide
+         */
+        public static final String FOD_COLOR = "fod_color";
+
+        /**
          * Position of date
          * 0 - Left of clock
          * 1 - Right of clock

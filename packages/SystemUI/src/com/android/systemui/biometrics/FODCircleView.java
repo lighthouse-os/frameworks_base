@@ -39,7 +39,10 @@ import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
+import android.content.ContentResolver;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.UserHandle;
 import android.hardware.biometrics.BiometricSourceType;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
@@ -102,6 +105,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private LockPatternUtils mLockPatternUtils;
 
     private Timer mBurnInProtectionTimer;
+
+
+    private int mDefaultPressedColor;
+    private int mPressedColor;
+    private final int[] PRESSED_COLOR = {
+        R.drawable.fod_icon_pressed,
+        R.drawable.fod_icon_pressed_cyan,
+        R.drawable.fod_icon_pressed_green,
+        R.drawable.fod_icon_pressed_yellow
+    };
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -175,6 +188,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         @Override
         public void onKeyguardVisibilityChanged(boolean showing) {
             mIsKeyguard = showing;
+            updateStyle();
 
             if (!showing) {
                 hide();
@@ -190,6 +204,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
+            updateStyle();
+
             if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
                     show();
@@ -270,6 +286,9 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         mPaintFingerprintBackground.setColor(res.getColor(R.color.config_fodColorBackground));
         mPaintFingerprintBackground.setAntiAlias(true);
 
+        mDefaultPressedColor = res.getInteger(com.android.internal.R.
+             integer.config_fod_pressed_color);
+
         mPowerManager = context.getSystemService(PowerManager.class);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                  FODCircleView.class.getSimpleName());
@@ -308,15 +327,16 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             @Override
             protected void onDraw(Canvas canvas) {
                 if (mIsCircleShowing) {
-                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    setImageResource(PRESSED_COLOR[mPressedColor]);
                 }
                 super.onDraw(canvas);
             }
         };
-        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
 
         mWindowManager.addView(this, mParams);
 
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
         updatePosition();
         hide();
 
@@ -336,7 +356,32 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         } else {
             mDozeEnabled = TunerService.parseIntegerSwitch(newValue, true);
         }
-    
+    }
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_COLOR),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_COLOR))) {
+                updateStyle();
+            }
+        }
+
+        public void update() {
+            updateStyle();
+        }
     }
 
     @Override
@@ -369,6 +414,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        updateStyle();
         updatePosition();
     }
 
@@ -492,6 +538,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
     private void updateAlpha() {
         setAlpha(mIsDreaming ? 0.5f : 1.0f);
+    }
+
+    private void updateStyle() {
+        mPressedColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_COLOR, mDefaultPressedColor);
     }
 
     private void updatePosition() {
