@@ -68,4 +68,8 @@
         <item>lockdown</item>
     </string-array>
 
+    <!-- Default FOD pressed color -->
+    <integer name="config_fod_pressed_color">0</integer>
+
+
 </resources>
