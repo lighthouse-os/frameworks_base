@@ -5317,6 +5317,24 @@ public final class Settings {
          */
         public static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
 
+       /**
+         * User definable value of pulse notification screen brightness
+         *
+         * @hide
+         */
+       public static final String PULSE_BRIGHTNESS = "pulse_brightness";
+
+       /**
+        * User definable value of aod screen brightness
+        *
+        * @hide
+        */
+       public static final String DOZE_BRIGHTNESS = "doze_brightness";
+
+       /**
+        * @hide
+        */
+       public static final String DOZE_BRIGHTNESS_FORCE = "doze_brightness_force";
 
         /**
         * helper setting to contain the current pulse reason so we can check
@@ -5457,6 +5475,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
+            PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS_FORCE);
         }
 
         /**
