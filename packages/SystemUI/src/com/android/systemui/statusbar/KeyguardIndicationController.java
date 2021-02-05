@@ -535,6 +535,10 @@ public class KeyguardIndicationController implements StateListener,
         }
     }
 
+    public boolean isChargingIndicationVisible() {
+        return mChargingIndication && mPowerPluggedIn;
+    }
+
     // animates textView - textView moves up and bounces down
     private void animateText(KeyguardIndicationTextView textView, String indication) {
         int yTranslation = mContext.getResources().getInteger(
