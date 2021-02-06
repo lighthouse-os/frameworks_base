@@ -3,4 +3,7 @@
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
+    <!-- Screen recorder framerate limit -->
+    <java-symbol type="integer" name="config_screenRecorderMaxFramerate" />
+
 </resources>
