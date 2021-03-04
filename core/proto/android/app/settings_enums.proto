@@ -2688,6 +2688,9 @@ enum PageId {
     // CATEGORY: SETTINGS
     // OS: R QPR
     ADAPTIVE_CONNECTIVITY_CATEGORY = 1850;
+    
+    // OS: R QPR2
+    BLUETOOTH_PAIRING_RECEIVER = 1851;
 
     // Custom Additions
     // Panel for Bluetooth
