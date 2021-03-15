@@ -27,6 +27,7 @@ import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
 import static android.os.BatteryManager.EXTRA_STATUS;
 import static android.os.BatteryManager.EXTRA_VOOC_CHARGER;
+import static android.os.BatteryManager.EXTRA_TURBO_POWER;
 
 import android.content.Context;
 import android.content.Intent;
@@ -47,23 +48,26 @@ public class BatteryStatus {
     public static final int CHARGING_FAST = 2;
     // dev-harsh1998 port vooc charging to Android R fuel gauge
     public static final int CHARGING_VOOC = 5;
+    public static final int CHARGING_TURBO_POWER = 6;
 
     public final int status;
     public final int level;
     public final int plugged;
     public final int health;
     public final int maxChargingWattage;
+    public final boolean turboPowerStatus;
 
     // dev-harsh1998 port vooc charging to Android R fuel gauge
     public final boolean voocChargeStatus;
     public BatteryStatus(int status, int level, int plugged, int health,
-            int maxChargingWattage, boolean voocChargeStatus) {
+            int maxChargingWattage, boolean voocChargeStatus,boolean turboPowerStatus) {
         this.status = status;
         this.level = level;
         this.plugged = plugged;
         this.health = health;
         this.maxChargingWattage = maxChargingWattage;
         this.voocChargeStatus = voocChargeStatus;
+        this.turboPowerStatus = turboPowerStatus;
     }
 
     public BatteryStatus(Intent batteryChangedIntent) {
@@ -72,6 +76,7 @@ public class BatteryStatus {
         level = batteryChangedIntent.getIntExtra(EXTRA_LEVEL, 0);
         health = batteryChangedIntent.getIntExtra(EXTRA_HEALTH, BATTERY_HEALTH_UNKNOWN);
         voocChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_VOOC_CHARGER, false);
+        turboPowerStatus = batteryChangedIntent.getBooleanExtra(EXTRA_TURBO_POWER, false);
 
         final int maxChargingMicroAmp = batteryChangedIntent.getIntExtra(EXTRA_MAX_CHARGING_CURRENT,
                 -1);
@@ -151,6 +156,7 @@ public class BatteryStatus {
         final int fastThreshold = context.getResources().getInteger(
                 R.integer.config_chargingFastThreshold);
         return voocChargeStatus ? CHARGING_VOOC :
+                turboPowerStatus ? CHARGING_TURBO_POWER :
                 maxChargingWattage <= 0 ? CHARGING_UNKNOWN :
                 maxChargingWattage < slowThreshold ? CHARGING_SLOWLY :
                         maxChargingWattage > fastThreshold ? CHARGING_FAST :
