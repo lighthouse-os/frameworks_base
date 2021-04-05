@@ -65,5 +65,7 @@
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 
+    <!-- Whether device supports gaming mode profiles -->
+    <java-symbol type="bool" name="config_gamingmode_performance" />
 
 </resources>

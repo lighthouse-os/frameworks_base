@@ -220,6 +220,7 @@ public class NotificationShadeWindowViewController {
                                     ? View.VISIBLE : View.GONE);
                         }
                     break;
+                }
             }
         };
 
