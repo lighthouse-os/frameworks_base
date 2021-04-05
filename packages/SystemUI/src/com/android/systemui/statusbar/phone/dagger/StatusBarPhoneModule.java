@@ -106,6 +106,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
@@ -222,7 +223,15 @@ public interface StatusBarPhoneModule {
             FeatureFlags featureFlags,
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
+<<<<<<< HEAD
             Optional<StartingSurface> startingSurfaceOptional) {
+=======
+            Optional<StartingSurface> startingSurfaceOptional,
+            BurnInProtectionController burnInProtectionController,
+            TaskHelper taskHelper,
+            SecureLockscreenQSDisabler secureLockscreenQSDisabler,
+            TunerService tunerService) {
+>>>>>>> 87a04fe5515a (base: Add GamingMode support [SQUASHED])
         return new StatusBar(
                 context,
                 notificationsController,
@@ -312,6 +321,14 @@ public interface StatusBarPhoneModule {
                 featureFlags,
                 keyguardUnlockAnimationController,
                 unlockedScreenOffAnimationController,
+<<<<<<< HEAD
                 startingSurfaceOptional);
+=======
+                startingSurfaceOptional,
+                burnInProtectionController,
+                taskHelper,
+                secureLockscreenQSDisabler,
+                tunerService);
+>>>>>>> 87a04fe5515a (base: Add GamingMode support [SQUASHED])
     }
 }
