@@ -4996,6 +4996,12 @@ public final class Settings {
         public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
 
         /**
+         * Custom Ambient raise gesture
+         * @hide
+         */
+        public static final String CUSTOM_AMBIENT_RAISE_GESTURE = "custom_ambient_raise_gesture";
+
+        /**
          * Whether the phone vibrates on disconnect
          * @hide
          */
