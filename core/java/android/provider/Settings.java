@@ -4795,8 +4795,6 @@ public final class Settings {
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
         /**
-
-        /**
          * Whether or not to vibrate when a touchscreen gesture is detected
          * @hide
          */
