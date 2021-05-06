@@ -311,8 +311,6 @@ filegroup {
         ":framework-mime-sources",
         ":framework-non-updatable-sources",
         ":framework-updatable-sources",
-        // LineageHardware
-        "core/java/com/android/internal/custom/hardware/ILineageHardwareService.aidl",
     ],
 }
 
