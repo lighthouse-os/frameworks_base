@@ -5204,6 +5204,12 @@ public final class Settings {
         public static final String DISPLAY_AUTO_OUTDOOR_MODE = "display_auto_outdoor_mode";
 
         /**
+         * FOD icon animation
+         * @hide
+         */
+        public static final String FOD_ICON_ANIMATION = "fod_icon_animation";
+
+        /**
          * Reader mode
          * 0 = 0ff, 1 = on
          */
