@@ -5210,6 +5210,12 @@ public final class Settings {
         public static final String FOD_ICON_ANIMATION = "fod_icon_animation";
 
         /**
+         * FOD icon animation style
+         * @hide
+         */
+        public static final String FOD_ICON_ANIM_TYPE = "fod_icon_anim_type";
+
+        /**
          * Reader mode
          * 0 = 0ff, 1 = on
          */
