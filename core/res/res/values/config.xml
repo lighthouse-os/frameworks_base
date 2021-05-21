@@ -4387,6 +4387,8 @@
     <string-array translatable="false" name="config_customPermissionsList">
         <item>com.google.android.apps.wellbeing</item>
         <item>com.android.wallpaper.livepicker</item>
+        <item>com.google.pixel.livewallpaper</item>
+
     </string-array>
 
     <!-- The list of components which should be automatically disabled for a specific device.
