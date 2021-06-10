@@ -283,7 +283,7 @@ import com.android.server.power.ShutdownThread;
 import com.android.server.protolog.ProtoLogImpl;
 import com.android.server.protolog.common.ProtoLog;
 import com.android.server.utils.PriorityDump;
-import com.android.server.wm.utils.DeviceConfigInterface;
+import com.android.server.utils.DeviceConfigInterface;
 
 import java.io.BufferedWriter;
 import java.io.DataInputStream;

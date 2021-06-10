@@ -48,6 +48,8 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.os.BackgroundThread;
 import com.android.server.display.utils.AmbientFilter;
 import com.android.server.display.utils.AmbientFilterFactory;
+import com.android.server.utils.DeviceConfigInterface;
+
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -1207,7 +1209,6 @@ public class DisplayModeDirector {
             pw.println("    mRefreshRateChangeable: " + mRefreshRateChangeable);
             pw.println("    mShouldObserveDisplayLowChange: " + mShouldObserveDisplayLowChange);
             pw.println("    mShouldObserveAmbientLowChange: " + mShouldObserveAmbientLowChange);
-            pw.println("    mRefreshRateInLowZone: " + mRefreshRateInLowZone);
 
             for (int d: mDisplayBrightnessThresholds) {
                 pw.println("    mDisplayBrightnessThreshold: " + d);
