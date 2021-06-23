@@ -31,6 +31,7 @@ import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayManager.DisplayListener;
 import android.hardware.input.InputManager;
 import android.os.AsyncTask;
+import android.os.UserHandle;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.SystemClock;
@@ -54,6 +55,10 @@ import android.view.Surface;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
+
+import android.media.session.MediaController;
+import android.media.session.MediaSessionManager;
+import android.media.session.PlaybackState;
 
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
@@ -89,6 +94,8 @@ import java.util.concurrent.Executor;
  */
 public class EdgeBackGestureHandler extends CurrentUserTracker implements DisplayListener,
         PluginListener<NavigationEdgeBackPlugin>, ProtoTraceable<SystemUiTraceProto> {
+
+    private final MediaSessionManager mMediaSessionManager;
 
     private static final String TAG = "EdgeBackGestureHandler";
     private static final int MAX_LONG_PRESS_TIMEOUT = SystemProperties.getInt(
@@ -198,6 +205,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
     private boolean mIsBackGestureAllowed;
     private boolean mGestureBlockingActivityRunning;
 
+    // Edge music controller 
+    private boolean mEdgeMusicEnabled;
+
     private InputMonitor mInputMonitor;
     private InputEventReceiver mInputEventReceiver;
 
@@ -256,6 +266,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
             Runnable stateChangeCallback) {
         super(Dependency.get(BroadcastDispatcher.class));
         mContext = context;
+        mMediaSessionManager = context.getSystemService(MediaSessionManager.class);
         mVibrator = context.getSystemService(Vibrator.class);
         mDisplayId = context.getDisplayId();
         mMainExecutor = context.getMainExecutor();
@@ -306,6 +317,8 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
 
         mYDeadzoneDivider = mGestureNavigationSettingsObserver.getDeadZoneMode();
 
+        mEdgeMusicEnabled = mGestureNavigationSettingsObserver.getEdgeMusicEnabled();
+        
         final DisplayMetrics dm = res.getDisplayMetrics();
         final float defaultGestureHeight = res.getDimension(
                 com.android.internal.R.dimen.navigation_bar_gesture_height) / dm.density;
@@ -601,9 +614,26 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
         }
 
         if (mYDeadzoneDivider != 0 && y < (mDisplaySize.y / mYDeadzoneDivider)) {
+            if (mEdgeMusicEnabled) { 
+            if (mMediaSessionManager != null) {
+                final List<MediaController> sessions = mMediaSessionManager.getActiveSessionsForUser(
+                        null, UserHandle.USER_ALL);
+                for (MediaController aController : sessions) {
+                    if (PlaybackState.STATE_PLAYING ==
+                            getMediaControllerPlaybackState(aController)) {
+                        if (mIsOnLeftEdge) {
+                            aController.getTransportControls().skipToPrevious();
+                        }
+                        else {
+                            aController.getTransportControls().skipToNext();
+                        }
+                        break;
+                    }
+                }
+            }
+        }
             return false;
         }
-
 
         // For debugging purposes
         if (mPredictionLog.size() >= MAX_LOGGED_PREDICTIONS) {
@@ -635,6 +665,16 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
         mInRejectedExclusion = mUnrestrictedExcludeRegion.contains(x, y);
         mLogGesture = true;
         return withinRange;
+    }
+
+    private int getMediaControllerPlaybackState(MediaController controller) {
+        if (controller != null) {
+            final PlaybackState playbackState = controller.getPlaybackState();
+            if (playbackState != null) {
+                return playbackState.getState();
+            }
+        }
+        return PlaybackState.STATE_NONE;
     }
 
     private void cancelGesture(MotionEvent ev) {

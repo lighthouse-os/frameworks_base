@@ -148,4 +148,11 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         }
         return divider;
     }
+
+    public boolean getEdgeMusicEnabled() {
+        return Settings.System.getIntForUser(
+               mContext.getContentResolver(), Settings.System.EDGE_MUSIC_CONTROL, 0,
+               UserHandle.USER_CURRENT) == 1;
+    }
+
 }
