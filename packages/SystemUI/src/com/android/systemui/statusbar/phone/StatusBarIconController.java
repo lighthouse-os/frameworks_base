@@ -50,7 +50,7 @@ import com.android.systemui.statusbar.StatusBarImsView;
 import com.android.systemui.statusbar.StatusIconDisplayable;
 import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.MobileIconState;
 import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.WifiIconState;
-import com.android.systemui.statusbar.policy.NetworkTraffic;
+import com.android.systemui.statusbar.policy.NetworkTrafficSB;
 import com.android.systemui.util.Utils.DisableStateTracker;
 
 import com.android.systemui.statusbar.policy.NetworkController.ImsIconState;
@@ -270,7 +270,7 @@ public interface StatusBarIconController {
 
                 case TYPE_IMS:
                     return addImsIcon(index, slot, holder.getImsState());
-
+                    
                 case TYPE_NETWORK_TRAFFIC:
                     return addNetworkTraffic(index, slot);
             }
@@ -299,8 +299,8 @@ public interface StatusBarIconController {
             return view;
         }
 
-        protected NetworkTraffic addNetworkTraffic(int index, String slot) {
-            NetworkTraffic view = onCreateNetworkTraffic(slot);
+        protected NetworkTrafficSB addNetworkTraffic(int index, String slot) {
+            NetworkTrafficSB view = onCreateNetworkTraffic(slot);
             mGroup.addView(view, index, onCreateLayoutParams());
             return view;
         }
@@ -342,14 +342,13 @@ public interface StatusBarIconController {
             StatusBarImsView view = StatusBarImsView.fromContext(mContext, slot);
             return view;
         }
-        
-        private NetworkTraffic onCreateNetworkTraffic(String slot) {
-            NetworkTraffic view = new NetworkTraffic(mContext);
+
+        private NetworkTrafficSB onCreateNetworkTraffic(String slot) {
+            NetworkTrafficSB view = new NetworkTrafficSB(mContext);
             view.setPadding(4, 0, 4, 0);
             return view;
         }
-            
-
+        
         protected LinearLayout.LayoutParams onCreateLayoutParams() {
             return new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, mIconSize);
         }
@@ -474,6 +473,22 @@ public interface StatusBarIconController {
 
         protected DemoStatusIcons createDemoStatusIcons() {
             return new DemoStatusIcons((LinearLayout) mGroup, mIconSize);
+        }
+
+        public void onPanelExpanded(boolean isExpanded) {
+            for (int i = 0; i < mGroup.getChildCount(); i++) {
+                if (mGroup.getChildAt(i) instanceof NetworkTrafficSB) {
+                    ((NetworkTrafficSB)mGroup.getChildAt(i)).onPanelExpanded(isExpanded);
+                }
+            }
+        }
+
+        public void setKeyguardShowing(boolean showing) {
+            for (int i = 0; i < mGroup.getChildCount(); i++) {
+                if (mGroup.getChildAt(i) instanceof NetworkTrafficSB) {
+                    ((NetworkTrafficSB)mGroup.getChildAt(i)).setKeyguardShowing(showing);
+                }
+            }
         }
     }
 }
