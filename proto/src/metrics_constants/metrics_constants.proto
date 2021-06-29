@@ -7440,6 +7440,7 @@ message MetricsEvent {
     PANEL_BLUETOOTH = 9996;
 
     SUPPLIES = 6969;
-
+    LH_QS_TILES = 2001;
+    
   }
 }
