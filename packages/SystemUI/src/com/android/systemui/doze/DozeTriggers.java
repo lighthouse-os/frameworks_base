@@ -618,15 +618,5 @@ public class DozeTriggers implements DozeMachine.Part {
         public void skipTrack() {
             LineageButtons.getAttachedInstance(mContext).skipTrack();
         }
-
-        @Override
-        public void wakeUpFromDoubleTap(int pulseReason) {
-            gentleWakeUp(pulseReason);
-        }
-
-        @Override
-        public void skipTrack() {
-            LineageButtons.getAttachedInstance(mContext).skipTrack();
-        }
     };
 }
