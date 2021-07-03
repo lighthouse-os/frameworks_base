@@ -169,11 +169,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.getLayoutParams();
         if (hasInDisplayFingerprint()) {
             lp.setMargins(0, 0, 0, mFODmargin);
-        } else if (isChargingIndicationVisible()) {
-            if (!mChargingIndicationChecked) {
-                mChargingIndicationChecked = true;
-                lp.setMargins(0, 0, 0, mKGmargin);
-            }
         } else {
             if (mChargingIndicationChecked) {
                 mChargingIndicationChecked = false;
@@ -185,12 +180,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
 
     private boolean hasInDisplayFingerprint() {
         return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_supportsInDisplayFingerprint);
+                com.android.internal.R.bool.config_needCustomFODView);
     }
-
-    private boolean isChargingIndicationVisible() {
-        return mKeyguardIndicationController.isChargingIndicationVisible();
-        }
 
     public View getTitleView() {
         return mText;
