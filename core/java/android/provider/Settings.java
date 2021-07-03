@@ -5273,14 +5273,7 @@ public final class Settings {
          * @hide
          */
         public static final String AOD_NOTIFICATION_PULSE_ACTIVATED = "ambient_notification_light_activated";
-        
-        /**
-         * helper setting to contain the current pulse reason so we can check
-         * if it has been triggered from a notification or a gesture
-         * @hide
-         */
-        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
-        
+                
         /** 
          * Timeout for ambient pulse in seconds - 0 is no timeout
          * @hide

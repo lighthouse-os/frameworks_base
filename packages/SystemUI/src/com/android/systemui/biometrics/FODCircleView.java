@@ -40,6 +40,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import android.hardware.biometrics.BiometricSourceType;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.keyguard.KeyguardUpdateMonitor;

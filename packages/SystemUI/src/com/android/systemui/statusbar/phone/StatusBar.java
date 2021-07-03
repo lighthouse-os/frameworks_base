@@ -2030,14 +2030,15 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.PULSE_ON_NEW_TRACKS))) {
                 setPulseOnNewTracks();
             }
+        }
 
         public void update() {
             updateQsPanelResources();
             setStatusDoubleTapToSleep();
             setOldMobileType();
             setPulseOnNewTracks();
+        }
     }
-
 
     /*private void doXXX() {
 
