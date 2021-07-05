@@ -5383,10 +5383,7 @@ public final class Settings {
          * @hide
          */
         public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
-        /**
-         * @hide
-         */
-        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+        
         /**
         * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
