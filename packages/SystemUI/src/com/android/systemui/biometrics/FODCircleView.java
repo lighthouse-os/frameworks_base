@@ -431,7 +431,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void showCircle() {
-        if (mFading) return;
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
@@ -479,8 +478,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             return;
         }
 
-        mFODIcon.show();
         updatePosition();
+        mFODIcon.show();
 
         setVisibility(View.VISIBLE);
         animate().withStartAction(() -> mFading = true)
