@@ -62,10 +62,10 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private static final String SETTING_HEADS_UP_TICKER = "ticker_gets_heads_up";
 
     private final List<NotificationInterruptSuppressor> mSuppressors = new ArrayList<>();
-    private final Context mContext;
     private final StatusBarStateController mStatusBarStateController;
     private final NotificationFilter mNotificationFilter;
     private final ContentResolver mContentResolver;
+    private final Context mContext;
     private final PowerManager mPowerManager;
     private final IDreamManager mDreamManager;
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
@@ -80,6 +80,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
 
     @Inject
     public NotificationInterruptStateProviderImpl(
+            Context context,
             ContentResolver contentResolver,
             PowerManager powerManager,
             IDreamManager dreamManager,
