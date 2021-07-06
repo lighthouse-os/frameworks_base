@@ -158,7 +158,6 @@ import android.os.Vibrator;
 import android.pocket.IPocketCallback;
 import android.pocket.PocketManager;
 import android.provider.DeviceConfig;
-import android.pocket.PocketManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.service.dreams.DreamManagerInternal;
@@ -672,8 +671,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     };
 
-
-    private PocketManager mPocketManager;
 
     private static final int MSG_DISPATCH_MEDIA_KEY_WITH_WAKE_LOCK = 3;
     private static final int MSG_KEYGUARD_DRAWN_COMPLETE = 5;
