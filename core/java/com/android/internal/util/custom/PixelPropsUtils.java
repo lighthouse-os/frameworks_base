@@ -57,7 +57,7 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys");
     }
 
     public static void setProps(String packageName) {
