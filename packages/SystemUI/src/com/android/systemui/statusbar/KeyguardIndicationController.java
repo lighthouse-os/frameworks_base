@@ -288,7 +288,7 @@ public class KeyguardIndicationController implements StateListener,
 
     public void setVisible(boolean visible) {
         mVisible = visible;
-        mIndicationArea.setVisibility(visible ? View.VISIBLE : View.GONE);
+        mIndicationArea.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
         if (visible) {
             // If this is called after an error message was already shown, we should not clear it.
             // Otherwise the error message won't be shown
