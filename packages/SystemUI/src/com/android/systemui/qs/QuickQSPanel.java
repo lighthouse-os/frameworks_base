@@ -150,12 +150,6 @@ public class QuickQSPanel extends QSPanel {
     }
 
     @Override
-    public void setListening(boolean listening) {
-        super.setListening(listening);
-        setBrightnessListening(listening);
-    }
-
-    @Override
     protected String getDumpableTag() {
         return TAG;
     }
