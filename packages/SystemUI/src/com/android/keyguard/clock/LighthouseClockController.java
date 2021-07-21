@@ -102,8 +102,8 @@ public class LighthouseClockController implements ClockPlugin {
     private void setClockColors() {
         int mAccentColor = mContext.getResources().getColor(R.color.lockscreen_clock_accent_color);
         int mWhiteColor = mContext.getResources().getColor(R.color.lockscreen_clock_white_color);
-        mClock.setFormat12Hour(Html.fromHtml("<font color=" + mWhiteColor + ">hh</font>:<font color=" + mWhiteColor + ">mm</font>"));
-        mClock.setFormat24Hour(Html.fromHtml("<font color=" + mWhiteColor + ">kk</font>:<font color=" + mWhiteColor + ">mm</font>"));
+        mClock.setFormat12Hour(Html.fromHtml("<font color=" + mWhiteColor + ">hh</font><br><font color=" + mWhiteColor + ">mm</font>"));
+        mClock.setFormat24Hour(Html.fromHtml("<font color=" + mWhiteColor + ">kk</font><br><font color=" + mWhiteColor + ">mm</font>"));
     }
 
     @Override
