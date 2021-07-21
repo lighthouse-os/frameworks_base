@@ -262,11 +262,12 @@ public final class ClockManager {
         mListeners.forEach((listener, clocks) -> {
             clocks.reloadCurrentClock();
             final ClockPlugin clock = clocks.getCurrentClock();
+            final ClockPlugin lhosClock = clocks.getlhosCLock();
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                listener.onClockChanged(clock instanceof DefaultClockController ? null : clock);
+                listener.onClockChanged(clock instanceof DefaultClockController ? lhosClock : clock);
             } else {
                 mMainHandler.post(() -> listener.onClockChanged(
-                        clock instanceof DefaultClockController ? null : clock));
+                        clock instanceof DefaultClockController ? lhosClock : clock));
             }
         });
     }
@@ -302,7 +303,8 @@ public final class ClockManager {
          * Active ClockPlugin.
          */
         @Nullable private ClockPlugin mCurrentClock;
-
+        @Nullable private ClockPlugin lhosClock;
+        
         @Override
         public void onPluginConnected(ClockPlugin plugin, Context pluginContext) {
             addClockPlugin(plugin);
@@ -324,6 +326,9 @@ public final class ClockManager {
             return mCurrentClock;
         }
 
+        ClockPlugin getlhosCLock() {
+            return mClocks.get("LighthouseClockController");
+        }
         /**
          * Get information about available clock faces.
          */
