@@ -5125,6 +5125,12 @@ public final class Settings {
         public static final String ALERT_SLIDER_ORDER = "alert_slider_order";
 
         /**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String SHOW_VOLTE_ICON = "volte_icon";
+
+        /**
          * Preferred silent mode for Alert Slider..
          * 0: Alarms only.
          * 1: Total silence
@@ -5571,6 +5577,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS_FORCE);
+            PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
         }
 
         /**
