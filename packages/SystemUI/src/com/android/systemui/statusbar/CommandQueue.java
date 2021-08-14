@@ -348,6 +348,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
         default void toggleCameraFlash() { }
 
         default void killForegroundApp() { }
+    }
 
     public CommandQueue(Context context) {
         this(context, null);

@@ -100,6 +100,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.systemui.tuner.TunerService;
+import com.android.systemui.statusbar.policy.TaskHelper;
 
 import com.android.systemui.statusbar.phone.StatusBar;
 
@@ -204,7 +205,8 @@ public interface StatusBarGoogleModule {
             Lazy<NotificationShadeDepthController> notificationShadeDepthController,
             DismissCallbackRegistry dismissCallbackRegistry,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
-            TunerService tunerService) {
+            TunerService tunerService,
+            TaskHelper taskHelper) {
         return new StatusBarGoogle(
                 smartSpaceController,
                 wallpaperNotifier,
@@ -285,6 +287,7 @@ public interface StatusBarGoogleModule {
                 dismissCallbackRegistry,
                 notificationShadeDepthController,
                 statusBarTouchableRegionManager,
-                tunerService);
+                tunerService,
+                taskHelper);
     }
 }
