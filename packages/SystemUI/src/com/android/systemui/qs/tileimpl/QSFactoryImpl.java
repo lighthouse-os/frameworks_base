@@ -126,8 +126,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<KillappTile> killappTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<SmartPixelsTile> smartPixelsTileProvider,
-                Provider<HeadsUpTile> headsUpTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider ) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;

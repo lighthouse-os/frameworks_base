@@ -130,7 +130,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
     private static final int MSG_HIDE_IN_DISPLAY_FINGERPRINT_VIEW  = 58 << MSG_SHIFT;
     private static final int MSG_TOGGLE_CAMERA_FLASH               = 59 << MSG_SHIFT;
     private static final int MSG_KILL_FOREGROUND_APP               = 60 << MSG_SHIFT;
-    private static final int MSG_SET_BLOCKED_GESTURAL_NAVIGATION   = 57 << MSG_SHIFT;
+    private static final int MSG_SET_BLOCKED_GESTURAL_NAVIGATION   = 61 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -1373,6 +1373,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).killForegroundApp();
 		    }
+		    break;
                 case MSG_SET_BLOCKED_GESTURAL_NAVIGATION:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).setBlockedGesturalNavigation((Boolean) msg.obj);
