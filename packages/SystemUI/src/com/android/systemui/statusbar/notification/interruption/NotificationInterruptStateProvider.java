@@ -57,5 +57,4 @@ public interface NotificationInterruptStateProvider {
      */
     void addSuppressor(NotificationInterruptSuppressor suppressor);
 
-    void setGamingPeekMode(boolean skipHeadsUp);
 }
