@@ -1203,12 +1203,9 @@ public class Instrumentation {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
         GmsHooks.initApplicationBeforeOnCreate(app);
-        AttestationHooks.initApplicationBeforeOnCreate(app);
         String packageName = app.getPackageName();
         PixelPropsUtils.setProps(packageName);
         return app;
-    }
-
     /**
      * Perform calling of the application's {@link Application#onCreate}
      * method.  The default implementation simply calls through to that method.
