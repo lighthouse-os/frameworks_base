@@ -58,6 +58,7 @@ import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -102,6 +103,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<SoundTile> mSoundTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -142,7 +144,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<SyncTile> syncTileProvider,
             Provider<SoundTile> soundTileProvider,
-            Provider<HeadsUpTile> headsUpTileProvider) {
+            Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -179,6 +182,7 @@ public class QSFactoryImpl implements QSFactory {
         mSyncTileProvider = syncTileProvider;
         mSoundTileProvider = soundTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -257,6 +261,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSoundTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
 
         // Custom tiles
