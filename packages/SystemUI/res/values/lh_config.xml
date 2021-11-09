@@ -56,4 +56,5 @@
     <bool name="config_audioPanelOnLeftSide">false</bool>
     <!-- SystemUI Google -->
     <bool name="flag_smartspace">true</bool>
+    <string name="config_systemUIVendorServiceComponent">com.dot.systemui.GoogleServices</string>
 </resources>
