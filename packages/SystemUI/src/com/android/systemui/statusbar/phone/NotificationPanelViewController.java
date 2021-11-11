@@ -858,7 +858,7 @@ public class NotificationPanelViewController extends PanelViewController {
                 new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                LighthouseUtils.switchScreenOff(context);
+                LighthouseUtils.switchScreenOff(mView.getContext());
                 return true;
             }
         });
