@@ -5443,6 +5443,7 @@ public final class Settings {
          * All settings in {@link LEGACY_RESTORE_SETTINGS} array *must* have a non-null validator,
          * otherwise they won't be restored.
          *
+         * @hide
          */
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
