@@ -91,9 +91,11 @@ public class KeyguardClockSwitch extends RelativeLayout {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        boolean landscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
-        boolean useLargeClock = !mHasVisibleNotifications && !landscape;
-        animateClockChange(useLargeClock);
+        if (mHasVisibleNotifications != null) {
+            boolean landscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
+            boolean useLargeClock = !mHasVisibleNotifications && !landscape;
+            animateClockChange(useLargeClock);
+        }
     }
 
     /**
