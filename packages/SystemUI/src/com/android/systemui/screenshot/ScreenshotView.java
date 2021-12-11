@@ -120,6 +120,7 @@ public class ScreenshotView extends FrameLayout implements
     private static final long SCREENSHOT_ACTIONS_EXPANSION_DURATION_MS = 300;
     private static final long SCREENSHOT_ACTIONS_ALPHA_DURATION_MS = 75;
     private static final long SCREENSHOT_DISMISS_Y_DURATION_MS = 350;
+    private static final long SCREENSHOT_DISMISS_X_DURATION_MS = 350;
     private static final long SCREENSHOT_DISMISS_ALPHA_DURATION_MS = 183;
     private static final long SCREENSHOT_DISMISS_ALPHA_OFFSET_MS = 50; // delay before starting fade
     private static final float SCREENSHOT_ACTIONS_START_SCALE_X = .7f;
