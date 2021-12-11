@@ -596,6 +596,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
             mNotificationShadeWindowController.setWallpaperSupportsAmbientMode(supportsAmbientMode);
             mScrimController.setWallpaperSupportsAmbientMode(supportsAmbientMode);
+            mKeyguardViewMediator.setWallpaperSupportsAmbientMode(supportsAmbientMode);
         }
     };
 
@@ -1052,7 +1053,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mNotificationShadeWindowViewController,
                 mNotificationPanelViewController,
                 mAmbientIndicationContainer);
-        mDozeParameters.addCallback(this::updateLightRevealScrimVisibility);
+        updateLightRevealScrimVisibility();
 
         mConfigurationController.addCallback(this);
 
@@ -1156,6 +1157,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mStatusBarView.setPanel(mNotificationPanelViewController);
                     mStatusBarView.setScrimController(mScrimController);
                     mStatusBarView.setExpansionChangedListeners(mExpansionChangedListeners);
+                    for (ExpansionChangedListener listener : mExpansionChangedListeners) {
+                        sendInitialExpansionAmount(listener);
+                    }
 
                     // CollapsedStatusBarFragment re-inflated PhoneStatusBarView and both of
                     // mStatusBarView.mExpanded and mStatusBarView.mBouncerShowing are false.
@@ -1266,8 +1270,19 @@ public class StatusBar extends SystemUI implements DemoMode,
         mScrimController.attachViews(scrimBehind, notificationsScrim, scrimInFront, scrimForBubble);
 
         mLightRevealScrim = mNotificationShadeWindowView.findViewById(R.id.light_reveal_scrim);
-        mLightRevealScrim.setRevealAmountListener(
-                mNotificationShadeWindowController::setLightRevealScrimAmount);
+        mLightRevealScrim.setScrimOpaqueChangedListener((opaque) -> {
+            Runnable updateOpaqueness = () -> {
+                mNotificationShadeWindowController.setLightRevealScrimOpaque(
+                        mLightRevealScrim.isScrimOpaque());
+            };
+            if (opaque) {
+                // Delay making the view opaque for a frame, because it needs some time to render
+                // otherwise this can lead to a flicker where the scrim doesn't cover the screen
+                mLightRevealScrim.post(updateOpaqueness);
+            } else {
+                updateOpaqueness.run();
+            }
+        });
         mUnlockedScreenOffAnimationController.initialize(this, mLightRevealScrim);
         updateLightRevealScrimVisibility();
 
@@ -3616,6 +3631,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void animateKeyguardUnoccluding() {
         mNotificationPanelViewController.setExpandedFraction(0f);
         animateExpandNotificationsPanel();
+        mScrimController.setUnocclusionAnimationRunning(true);
     }
 
     /**
@@ -3946,7 +3962,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void onDozeAmountChanged(float linear, float eased) {
         if (mFeatureFlags.useNewLockscreenAnimations()
-                && !(mLightRevealScrim.getRevealEffect() instanceof CircleReveal)) {
+                && !(mLightRevealScrim.getRevealEffect() instanceof CircleReveal)
+                && !mBiometricUnlockController.isWakeAndUnlock()) {
             mLightRevealScrim.setRevealAmount(1f - linear);
         }
     }
@@ -4491,8 +4508,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                 || mKeyguardStateController.isKeyguardFadingAway();
 
         // Do not animate the scrim expansion when triggered by the fingerprint sensor.
-        mScrimController.setExpansionAffectsAlpha(
-                !mBiometricUnlockController.isBiometricUnlock());
+        boolean onKeyguardOrHidingIt = mKeyguardStateController.isShowing()
+                || mKeyguardStateController.isKeyguardFadingAway()
+                || mKeyguardStateController.isKeyguardGoingAway();
+        mScrimController.setExpansionAffectsAlpha(!(mBiometricUnlockController.isBiometricUnlock()
+                        && onKeyguardOrHidingIt));
 
         boolean launchingAffordanceWithPreview =
                 mNotificationPanelViewController.isLaunchingAffordanceWithPreview();
@@ -4507,10 +4527,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             ScrimState state = mStatusBarKeyguardViewManager.bouncerNeedsScrimming()
                     ? ScrimState.BOUNCER_SCRIMMED : ScrimState.BOUNCER;
             mScrimController.transitionTo(state);
-        } else if (isInLaunchTransition()
-                || mLaunchCameraWhenFinishedWaking
-                || launchingAffordanceWithPreview) {
-            // TODO(b/170133395) Investigate whether Emergency Gesture flag should be included here.
+        } else if (launchingAffordanceWithPreview) {
+            // We want to avoid animating when launching with a preview.
             mScrimController.transitionTo(ScrimState.UNLOCKED, mUnlockScrimCallback);
         } else if (mBrightnessMirrorVisible) {
             mScrimController.transitionTo(ScrimState.BRIGHTNESS_MIRROR);
@@ -5040,6 +5058,14 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public void addExpansionChangedListener(@NonNull ExpansionChangedListener listener) {
         mExpansionChangedListeners.add(listener);
+        sendInitialExpansionAmount(listener);
+    }
+
+    private void sendInitialExpansionAmount(ExpansionChangedListener expansionChangedListener) {
+        if (mStatusBarView != null) {
+            expansionChangedListener.onExpansionChanged(mStatusBarView.getExpansionFraction(),
+                    mStatusBarView.isExpanded());
+        }
     }
 
     public void removeExpansionChangedListener(@NonNull ExpansionChangedListener listener) {
@@ -5053,11 +5079,5 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         mLightRevealScrim.setAlpha(mScrimController.getState().getMaxLightRevealScrimAlpha());
-        if (mFeatureFlags.useNewLockscreenAnimations()
-                && (mDozeParameters.getAlwaysOn() || mDozeParameters.isQuickPickupEnabled())) {
-            mLightRevealScrim.setVisibility(View.VISIBLE);
-        } else {
-            mLightRevealScrim.setVisibility(View.GONE);
-        }
     }
 }
