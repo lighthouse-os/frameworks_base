@@ -83,6 +83,7 @@ android_library {
     resource_dirs: [
         "res-product",
         "res-keyguard",
+        "res-smartspace",
         "res",
     ],
     static_libs: [
@@ -123,6 +124,7 @@ android_library {
         "tensorflowlite_java",
         "colorkt",
         "themelib",
+        "smartspace-google",
     ],
     manifest: "AndroidManifest.xml",
 
