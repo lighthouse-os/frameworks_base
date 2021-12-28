@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.protonaosp.systemui.theme
+package com.lighthouse.android.systemui.theme
 
 import android.annotation.ColorInt
 import android.app.WallpaperColors
@@ -49,7 +49,7 @@ import java.util.concurrent.Executor
 import javax.inject.Inject
 
 @SysUISingleton
-class CustomThemeOverlayController @Inject constructor(
+class ThemeOverlayControllerLighthouse @Inject constructor(
     private val context: Context,
     broadcastDispatcher: BroadcastDispatcher,
     @Background bgHandler: Handler,
@@ -142,7 +142,8 @@ class CustomThemeOverlayController @Inject constructor(
     }
 
     companion object {
-        private const val TAG = "CustomThemeOverlayController"
+        private const val TAG = "ThemeOverlayControllerLighthouse"
+        private const val DEBUG = false
 
         private const val SRGB_WHITE_LUMINANCE = 200.0 // cd/m^2
 
