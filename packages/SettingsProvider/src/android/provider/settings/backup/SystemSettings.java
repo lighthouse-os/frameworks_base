@@ -85,5 +85,6 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.SCREEN_OFF_FOD,
+        Settings.System.LOCKSCREEN_SMALL_CLOCK,
     };
 }
