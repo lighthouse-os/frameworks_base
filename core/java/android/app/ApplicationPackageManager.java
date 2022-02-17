@@ -765,6 +765,12 @@ public class ApplicationPackageManager extends PackageManager {
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
+        if (GmsCompat.isEnabled()) {
+            if ("android.hardware.uwb".equals(name)) {
+                // otherwise, GMS tries to access privileged UwbManager and crashes
+                return false;
+            }
+        }
         boolean isPixel6Device = Arrays.asList(pixel6Codenames).contains(SystemProperties.get(DEVICE));
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
@@ -779,6 +785,7 @@ public class ApplicationPackageManager extends PackageManager {
             if (Arrays.asList(featuresPixel6).contains(name)) return false;
         }
         if (Arrays.asList(featuresPixel).contains(name)) return true;
+
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
 
