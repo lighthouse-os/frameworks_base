@@ -81,10 +81,11 @@ android_library {
         },
     },
     resource_dirs: [
-        "res-product",
-        "res-keyguard",
-        "res-smartspace",
         "res",
+        "res-ambientmusic",
+        "res-keyguard",
+        "res-product",
+        "res-smartspace",
     ],
     static_libs: [
         "WindowManager-Shell",
@@ -124,6 +125,7 @@ android_library {
         "tensorflowlite_java",
         "colorkt",
         "themelib",
+        "ambientmusic-google",
         "smartspace-google",
     ],
     manifest: "AndroidManifest.xml",
