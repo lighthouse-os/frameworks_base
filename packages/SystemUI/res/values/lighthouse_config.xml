@@ -34,4 +34,8 @@
         <!-- Whether to pulse onFingerDown actions while in AOD. -->
     <bool name="config_pulseOnFingerDownInAod">false</bool>
 
+    <!-- Udfps HBM provider class name -->
+    <string name="config_udfpsHbmProviderComponent">com.android.systemui.biometrics.DummyUdfpsHbmProvider</string>
+
+
 </resources>
