@@ -4712,11 +4712,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
-    private void setHeadsUpBlacklist() {
-        if (mPresenter != null)
-            mPresenter.setHeadsUpBlacklist();
-    }
-
     private void setUseLessBoringHeadsUp() {
         boolean lessBoringHeadsUp = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LESS_BORING_HEADS_UP, 0,
