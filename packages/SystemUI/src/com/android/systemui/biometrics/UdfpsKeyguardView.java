@@ -34,7 +34,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
-import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.lighthouse.LighthouseUtils;
 
 import com.android.settingslib.Utils;
 import com.android.systemui.R;
@@ -122,7 +122,7 @@ public class UdfpsKeyguardView extends UdfpsAnimationView {
     private void updateIcon() {
         mCustomUdfpsIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.UDFPS_ICON, 0) != 0
-                && EvolutionUtils.isPackageInstalled(mContext, "com.evolution.udfps.resources");
+                && LighthouseUtils.isPackageInstalled(mContext, "com.lighthouse.udfps.resources");
         mBgProtection.setImageDrawable(mCustomUdfpsIcon
                 ? mFingerprintDrawable :
                 getContext().getDrawable(R.drawable.fingerprint_bg));

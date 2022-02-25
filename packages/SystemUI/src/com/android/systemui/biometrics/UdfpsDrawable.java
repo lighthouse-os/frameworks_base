@@ -32,7 +32,7 @@ import android.util.PathParser;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.lighthouse.LighthouseUtils;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
@@ -47,7 +47,7 @@ public abstract class UdfpsDrawable extends Drawable {
 
     static final String UDFPS_ICON = "system:" + Settings.System.UDFPS_ICON;
 
-    String udfpsResourcesPackage = "com.evolution.udfps.resources";
+    String udfpsResourcesPackage = "com.lighthouse.udfps.resources";
 
     @NonNull final Context mContext;
     @NonNull final ShapeDrawable mFingerprintDrawable;
@@ -78,7 +78,7 @@ public abstract class UdfpsDrawable extends Drawable {
     }
 
     void init() {
-        if (EvolutionUtils.isPackageInstalled(mContext, udfpsResourcesPackage)) {
+        if (LighthouseUtils.isPackageInstalled(mContext, udfpsResourcesPackage)) {
             try {
                 PackageManager pm = mContext.getPackageManager();
                 udfpsRes = pm.getResourcesForApplication(udfpsResourcesPackage);
