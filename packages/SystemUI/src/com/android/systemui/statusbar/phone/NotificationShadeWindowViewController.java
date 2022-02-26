@@ -203,19 +203,14 @@ public class NotificationShadeWindowViewController {
             public void onChange(boolean selfChange, Uri uri) {
                 final AmbientDisplayConfiguration configuration =
                     new AmbientDisplayConfiguration(mView.getContext());
-            switch (key) {
-                case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
-                    mDoubleTapEnabled = configuration.doubleTapGestureEnabled(
-                            UserHandle.USER_CURRENT);
-                    break;
-                case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
-                    mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
-                case QS_SHOW_AUTO_BRIGHTNESS_BUTTON:
-                    if (mAutoBrightnessIcon != null) {
-                        mShowAutoBrightnessButton = (newValue == null ||
-                                Integer.parseInt(newValue) == 0) ? false : true;
-                        mAutoBrightnessIcon.setVisibility(!mShowAutoBrightnessButton
-                                ? View.GONE : View.VISIBLE);
+                switch (uri.getLastPathSegment()) {
+                    case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
+                        mDoubleTapEnabled = configuration.doubleTapGestureEnabled(
+                                UserHandle.USER_CURRENT);
+                        break;
+                    case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
+                        mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
+                        break;
                     case Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON:
                         if (mAutoBrightnessIcon != null) {
                             mShowAutoBrightnessButton = mSystemSettings.getIntForUser(
@@ -224,8 +219,8 @@ public class NotificationShadeWindowViewController {
                             mAutoBrightnessIcon.setVisibility(mShowAutoBrightnessButton
                                     ? View.VISIBLE : View.GONE);
                         }
-                    }
-                    break;
+                        break;
+                }
             }
         };
 
