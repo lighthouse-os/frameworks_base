@@ -223,15 +223,8 @@ public interface StatusBarPhoneModule {
             FeatureFlags featureFlags,
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
-<<<<<<< HEAD
-            Optional<StartingSurface> startingSurfaceOptional) {
-=======
             Optional<StartingSurface> startingSurfaceOptional,
-            BurnInProtectionController burnInProtectionController,
-            TaskHelper taskHelper,
-            SecureLockscreenQSDisabler secureLockscreenQSDisabler,
             TunerService tunerService) {
->>>>>>> 87a04fe5515a (base: Add GamingMode support [SQUASHED])
         return new StatusBar(
                 context,
                 notificationsController,
@@ -321,14 +314,7 @@ public interface StatusBarPhoneModule {
                 featureFlags,
                 keyguardUnlockAnimationController,
                 unlockedScreenOffAnimationController,
-<<<<<<< HEAD
-                startingSurfaceOptional);
-=======
                 startingSurfaceOptional,
-                burnInProtectionController,
-                taskHelper,
-                secureLockscreenQSDisabler,
                 tunerService);
->>>>>>> 87a04fe5515a (base: Add GamingMode support [SQUASHED])
     }
 }

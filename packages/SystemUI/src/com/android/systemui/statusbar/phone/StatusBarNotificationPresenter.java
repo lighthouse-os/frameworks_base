@@ -536,7 +536,6 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
                     !TextUtils.equals(notification.category, Notification.CATEGORY_CALL) &&
                     !TextUtils.equals(notification.category, Notification.CATEGORY_ALARM));
             }
-            return false;
         }
 
         @Override

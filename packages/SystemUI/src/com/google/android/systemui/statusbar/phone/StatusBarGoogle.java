@@ -92,6 +92,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
@@ -204,7 +205,8 @@ public class StatusBarGoogle extends StatusBar {
             FeatureFlags featureFlags,
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
-            Optional<StartingSurface> startingSurfaceOptional) {
+            Optional<StartingSurface> startingSurfaceOptional,
+            TunerService tunerService) {
         super(
             context,
             notificationsController,
@@ -294,7 +296,8 @@ public class StatusBarGoogle extends StatusBar {
             featureFlags,
             keyguardUnlockAnimationController,
             unlockedScreenOffAnimationController,
-            startingSurfaceOptional);
+            startingSurfaceOptional,
+            tunerService);
     }
 
     @Override

@@ -950,8 +950,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 GAMING_MODE_ACTIVE,
                 GAMING_MODE_DISABLE_NOTIFICATION_ALERT);
 
-        }
-
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDreamManager = IDreamManager.Stub.asInterface(
                 ServiceManager.checkService(DreamService.DREAM_SERVICE));
