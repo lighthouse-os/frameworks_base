@@ -26,6 +26,7 @@ import android.graphics.PointF
 import android.util.AttributeSet
 import android.view.View
 import android.provider.Settings
+import android.os.UserHandle
 import android.view.animation.PathInterpolator
 import com.android.internal.graphics.ColorUtils
 import com.android.systemui.animation.Interpolators
@@ -249,10 +250,11 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
      * Ripple that bursts outwards from the position of the sensor to the edges of the screen
      */
     fun startUnlockedRipple(onAnimationEnd: Runnable?) {
-        val showRipple = Settings.System.getInt(
+        val showRipple = Settings.System.getIntForUser(
             context.contentResolver,
-            Settings.System.ENABLE_RIPPLE_EFFECT, 1
-        ) == 1
+            Settings.System.ENABLE_RIPPLE_EFFECT, 1,
+            UserHandle.USER_CURRENT) == 1
+        
         if (unlockedRippleInProgress) {
             return // Ignore if ripple effect is already playing
         }
