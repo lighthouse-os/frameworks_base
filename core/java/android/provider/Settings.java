@@ -5598,8 +5598,6 @@ public final class Settings {
          */
         public static final String UDFPS_ICON = "udfps_icon";
 
-        /**
-<<<<<<< HEAD
 
         /**
          * Whether or not gaming mode is enabled.
@@ -5645,8 +5643,6 @@ public final class Settings {
         public static final String GAMING_MODE_DISABLE_ADB = "gaming_mode_disable_adb";
 
         /**
-=======
->>>>>>> parent of 111e143f3ca0 (SystemUI: code refactor following brightness slider changes)
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
