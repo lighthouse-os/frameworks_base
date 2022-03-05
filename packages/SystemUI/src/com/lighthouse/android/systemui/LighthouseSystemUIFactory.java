@@ -2,7 +2,6 @@ package com.lighthouse.android.systemui;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Handler;
 
 import com.lighthouse.android.systemui.dagger.LighthouseGlobalRootComponent;
 import com.lighthouse.android.systemui.dagger.LighthouseSysUIComponent;
