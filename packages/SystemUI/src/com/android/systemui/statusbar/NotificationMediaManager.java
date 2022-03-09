@@ -20,6 +20,7 @@ import static com.android.systemui.statusbar.phone.StatusBar.DEBUG_MEDIA_FAKE_AR
 import static com.android.systemui.statusbar.phone.StatusBar.ENABLE_LOCKSCREEN_WALLPAPER;
 import static com.android.systemui.statusbar.phone.StatusBar.SHOW_LOCKSCREEN_MEDIA_ARTWORK;
 
+import android.os.UserHandle;
 import android.annotation.MainThread;
 import android.annotation.NonNull;
 import android.annotation.Nullable;

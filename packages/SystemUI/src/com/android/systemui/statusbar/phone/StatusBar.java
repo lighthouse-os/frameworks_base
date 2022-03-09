@@ -41,6 +41,7 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_SEMI_TRAN
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARENT;
 import static com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 
+import android.graphics.Point;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
@@ -2006,7 +2007,6 @@ public class StatusBar extends SystemUI implements
         }
     }
 
-    @Override
     public void toggleCameraFlash() {
         if (DEBUG) {
             Log.d(TAG, "Toggling camera flashlight");
@@ -3865,7 +3865,7 @@ public class StatusBar extends SystemUI implements
         return mDeviceInteractive;
     }
 
-    private SbSettingsObserver mSbSettingsObserver = new SbSettingsObserver(mHandler);
+    private SbSettingsObserver mSbSettingsObserver = new SbSettingsObserver(mMainHandler);
     private class SbSettingsObserver extends ContentObserver {
         SbSettingsObserver(Handler handler) {
             super(handler);
