@@ -62,14 +62,7 @@ import com.android.systemui.statusbar.connectivity.MobileDataIndicators;
 import com.android.systemui.statusbar.connectivity.NetworkController;
 import com.android.systemui.statusbar.connectivity.SignalCallback;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
-<<<<<<< HEAD
-=======
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.statusbar.policy.NetworkController;
-import com.android.systemui.statusbar.policy.NetworkController.IconState;
-import com.android.systemui.statusbar.policy.NetworkController.MobileDataIndicators;
-import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
->>>>>>> 5a6746499e2c (SystemUI: Require unlocking to use sensitive QS tiles)
 
 import javax.inject.Inject;
 

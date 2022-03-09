@@ -41,7 +41,6 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
->>>>>>> 5a6746499e2c (SystemUI: Require unlocking to use sensitive QS tiles)
 import com.android.systemui.statusbar.policy.RotationLockController.RotationLockControllerCallback;
 
 import javax.inject.Inject;
