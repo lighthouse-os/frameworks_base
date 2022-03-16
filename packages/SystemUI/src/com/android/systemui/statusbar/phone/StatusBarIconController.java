@@ -255,6 +255,9 @@ public interface StatusBarIconController {
         protected ArrayList<String> mBlockList = new ArrayList<>();
 
         private boolean mIsOldSignalStyle = false;
+
+
+            public IconManager(ViewGroup group, FeatureFlags featureFlags) {
             mFeatureFlags = featureFlags;
             mGroup = group;
             mContext = group.getContext();
