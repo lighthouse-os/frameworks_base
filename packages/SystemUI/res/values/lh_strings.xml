@@ -35,6 +35,9 @@
     <string name="tristate_rotation_90">Landscape (90°)</string>
     <string name="tristate_rotation_270">Landscape (270°)</string>
 
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+
     <string name="accessibility_status_bar_nfc">Nfc</string>
 
     <!-- Caffeine tile -->
