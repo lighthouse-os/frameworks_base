@@ -40,7 +40,6 @@ import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
-import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
@@ -97,7 +96,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<QuickAccessWalletTile> mQuickAccessWalletTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
-    private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
 
@@ -137,7 +135,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<QuickAccessWalletTile> quickAccessWalletTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<GamingModeTile> gamingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider) {
         mQsHostLazy = qsHostLazy;
@@ -172,7 +169,6 @@ public class QSFactoryImpl implements QSFactory {
         mQuickAccessWalletTileProvider = quickAccessWalletTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
-        mGamingModeTileProvider = gamingModeTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
     }
@@ -246,8 +242,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mCaffeineTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
-            case "gamingmode":
-                return mGamingModeTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
             case "fpsinfo":
