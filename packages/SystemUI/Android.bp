@@ -86,7 +86,6 @@ android_library {
         "res-ambientmusic",
         "res-keyguard",
         "res-product",
-        "res-smartspace",
     ],
     static_libs: [
         "WindowManager-Shell",

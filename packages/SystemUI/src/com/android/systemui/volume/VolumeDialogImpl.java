@@ -266,6 +266,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
     private boolean mHasAlertSlider;
+    private boolean mLeftVolumeRocker = false;
 
     // Volume panel placement left or right
     private boolean mVolumePanelOnLeft;
