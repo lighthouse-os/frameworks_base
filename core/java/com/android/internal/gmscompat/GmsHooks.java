@@ -89,6 +89,10 @@ public final class GmsHooks {
                 WebView.setDataDirectorySuffix("process-shim--" + processName);
             }
 
+            if (GmsCompat.isPlayStore()) {
+                PlayStoreHooks.init();
+            }
+
             if (!Process.isIsolated()) {
                 GmsCompatApp.connect(app);
             } else {
