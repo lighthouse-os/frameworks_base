@@ -64,7 +64,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.RotateDrawable;
 import android.media.AudioManager;
 import android.media.AudioSystem;
-import android.os.Build;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
@@ -313,8 +312,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         initDimens();
-        mLeftVolumeRocker = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide)
-                || Build.MANUFACTURER.contains("OnePlus");
+        mLeftVolumeRocker = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
     }
 
     @Override
