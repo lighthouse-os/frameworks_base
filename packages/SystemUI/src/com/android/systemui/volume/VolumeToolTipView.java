@@ -22,7 +22,6 @@ import android.content.res.Configuration;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -89,8 +88,8 @@ public class VolumeToolTipView extends LinearLayout {
     }
 
     private boolean isAudioPanelOnLeftSide() {
-        return !showActiveStreamOnly() && (Build.MANUFACTURER.contains("OnePlus") ||
-                getContext().getResources().getBoolean(R.bool.config_audioPanelOnLeftSide));
+        return !showActiveStreamOnly() &&
+            getContext().getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
     }
 
     private boolean showActiveStreamOnly() {
