@@ -66,9 +66,6 @@ class PrivacyItemController @Inject constructor(
         val CAMERA_WHITELIST_PKG = arrayOf(
             "org.pixelexperience.faceunlock",
         )
-        val CAMERA_WHITELIST_PKG = arrayOf(
-            "org.pixelexperience.faceunlock",
-        )
         val OPS_MIC_CAMERA = intArrayOf(AppOpsManager.OP_CAMERA,
                 AppOpsManager.OP_PHONE_CALL_CAMERA, AppOpsManager.OP_RECORD_AUDIO,
                 AppOpsManager.OP_PHONE_CALL_MICROPHONE)
