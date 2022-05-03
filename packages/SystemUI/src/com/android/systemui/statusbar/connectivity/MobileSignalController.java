@@ -582,7 +582,7 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 mSubscriptionInfo.getSubscriptionId(),
                 mCurrentState.roaming,
                 sbInfo.showTriangle,
-                mCurrentState.isDefault
+                mCurrentState.isDefault,
                 volteId);
         callback.setMobileDataIndicators(mobileDataIndicators);
     }
