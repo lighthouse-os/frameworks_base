@@ -135,6 +135,8 @@ import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyClient;
 import com.google.android.systemui.statusbar.phone.WallpaperNotifier;
+import com.android.systemui.statusbar.charging.WiredChargingRippleController;
+import com.android.systemui.statusbar.policy.FlashlightController;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -250,6 +252,7 @@ public class StatusBarGoogle extends StatusBar {
                            PluginManager pluginManager,
                            Optional<LegacySplitScreen> splitScreenOptional,
                            LightsOutNotifController lightsOutNotifController,
+                           FlashlightController flashlightController,
                            StatusBarNotificationActivityStarter.Builder
                                    statusBarNotificationActivityStarterBuilder,
                            ShadeController shadeController,
@@ -291,7 +294,8 @@ public class StatusBarGoogle extends StatusBar {
                            SmartSpaceController smartSpaceController,
                            WallpaperNotifier wallpaperNotifier,
                            Optional<ReverseChargingViewController> reverseChargingViewController,
-                           Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient) {
+                           Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
+                           WiredChargingRippleController wiredChargingRippleController) {
         super(context, notificationsController, fragmentService, lightBarController, autoHideController,
                 statusBarWindowController, keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
                 notificationWakeUpCoordinator, keyguardBypassController, keyguardStateController, headsUpManagerPhone,
@@ -306,7 +310,7 @@ public class StatusBarGoogle extends StatusBar {
                 dozeParameters, scrimController, lockscreenWallpaperLazy, lockscreenGestureLogger, biometricUnlockControllerLazy,
                 dozeServiceHost, powerManager, screenPinningRequest, dozeScrimController, volumeComponent, commandQueue,
                 collapsedStatusBarFragmentLogger, statusBarComponentFactory, pluginManager, splitScreenOptional,
-                lightsOutNotifController, statusBarNotificationActivityStarterBuilder, shadeController, statusBarKeyguardViewManager,
+                lightsOutNotifController, flashlightController, statusBarNotificationActivityStarterBuilder, shadeController, statusBarKeyguardViewManager,
                 viewMediatorCallback, initController, timeTickHandler, pluginDependencyProvider, keyguardDismissUtil,
                 extensionController, userInfoControllerImpl, operatorNameViewControllerFactory, phoneStatusBarPolicy,
                 keyguardIndicationController, demoModeController, notificationShadeDepthControllerLazy,
@@ -315,7 +319,7 @@ public class StatusBarGoogle extends StatusBar {
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager,
                 unlockedScreenOffAnimationController, startingSurfaceOptional, tunerService, dumpManager, activityLaunchAnimator,
-                burnInProtectionController);
+                burnInProtectionController,wiredChargingRippleController);
         mSmartSpaceController = smartSpaceController;
         mWallpaperNotifier = wallpaperNotifier;
         mReverseChargingViewController = reverseChargingViewController;
