@@ -419,7 +419,7 @@ public class SystemUIGoogleDependencyProvider {
     @Provides
     @SysUISingleton
     static CustomThemeOverlayController provideCustomThemeOverlayController(Context context, BroadcastDispatcher broadcastDispatcher, @Background Handler handler, @Main Executor executor, @Background Executor executorB, ThemeOverlayApplier themeOverlayApplier, SecureSettings secureSettings, SystemPropertiesHelper systemPropertiesHelper, @Main Resources resources, WallpaperManager wallpaperManager, UserManager userManager, DumpManager dumpManager, DeviceProvisionedController deviceProvisionedController, UserTracker userTracker, FeatureFlags featureFlags, WakefulnessLifecycle wakefulnessLifecycle, ConfigurationController configurationController) {
-        return new CustomThemeOverlayController(context, broadcastDispatcher, handler, executor, executorB, themeOverlayApplier, secureSettings, systemPropertiesHelper, resources, wallpaperManager, userManager, dumpManager, deviceProvisionedController, userTracker, featureFlags, wakefulnessLifecycle, configurationController);
+        return new CustomThemeOverlayController(context, broadcastDispatcher, handler, executor, executorB, themeOverlayApplier, secureSettings, wallpaperManager, userManager, dumpManager, deviceProvisionedController, userTracker, featureFlags, wakefulnessLifecycle);
     }
 
     @Provides

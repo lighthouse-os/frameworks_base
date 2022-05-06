@@ -314,12 +314,12 @@ public class StatusBarGoogle extends StatusBar {
                 viewMediatorCallback, initController, timeTickHandler, pluginDependencyProvider, keyguardDismissUtil,
                 extensionController, userInfoControllerImpl, operatorNameViewControllerFactory, phoneStatusBarPolicy,
                 keyguardIndicationController, demoModeController, notificationShadeDepthControllerLazy,
-                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, wallpaperController,
+                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, wiredChargingRippleController, wallpaperController,
                 ongoingCallController, animationScheduler, locationPublisher, statusBarIconController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager,
                 unlockedScreenOffAnimationController, startingSurfaceOptional, tunerService, dumpManager, activityLaunchAnimator,
-                burnInProtectionController,wiredChargingRippleController);
+                burnInProtectionController);
         mSmartSpaceController = smartSpaceController;
         mWallpaperNotifier = wallpaperNotifier;
         mReverseChargingViewController = reverseChargingViewController;
