@@ -1809,6 +1809,11 @@ public class Instrumentation {
                     intent.resolveTypeIfNeeded(who.getContentResolver()), token,
                     target != null ? target.mEmbeddedID : null, requestCode, 0, null, options);
             checkStartActivityResult(result, intent);
+
+            if (GmsCompat.isEnabled()) {
+                GmsHooks.onActivityStart(result, intent, options);
+            }
+
         } catch (RemoteException e) {
             throw new RuntimeException("Failure from system", e);
         }
